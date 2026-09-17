@@ -1,6 +1,6 @@
 'use client';
 
-import { type CSSProperties, type FormEvent, useEffect, useRef, useState } from 'react';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, ArrowUpRight, Pause, Play, Send, X } from 'lucide-react';
@@ -11,10 +11,11 @@ import { lumiGreeting, type LumiReply } from '@/lib/lumi';
 type Emotion = 'calm' | 'curious' | 'welcoming' | 'attentive' | 'thinking' | 'delighted';
 type Message = LumiReply & { id: number; role: 'lumi' | 'visitor' };
 const poses: Record<Emotion, number> = { calm: 0, curious: 1, welcoming: 2, attentive: 3, thinking: 4, delighted: 5 };
+const emotionNames: Record<Emotion, string> = { calm: 'Calm', curious: 'Curious', welcoming: 'Welcoming', attentive: 'Attentive', thinking: 'Thinking', delighted: 'Delighted' };
 const starters = ['Print materials', 'Signage', 'Get a quote'];
 
 function Mascot({ emotion }: { emotion: Emotion }) {
-  return <span aria-hidden="true" className={`lumi-art lumi-${emotion}`} style={{ '--lumi-pose': poses[emotion] } as CSSProperties} />;
+  return <span aria-hidden="true" data-emotion={emotion} className={`lumi-art lumi-${emotion}`} style={{ backgroundPosition: `${poses[emotion] * 20}% 48%` }} />;
 }
 
 export function LumiAssistant() {
@@ -31,6 +32,7 @@ export function LumiAssistant() {
   const [error, setError] = useState('');
   const [retryText, setRetryText] = useState('');
   const [saved, setSaved] = useState(false);
+  const [showExpressions, setShowExpressions] = useState(false);
   const [quoteDraft, setQuoteDraft] = useState<{ service: string; brief: string } | null>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLInputElement>(null);
@@ -63,7 +65,7 @@ export function LumiAssistant() {
     controller.current = null;
     sending.current = false;
     if (emotionTimer.current) clearTimeout(emotionTimer.current);
-    setOpen(false); setBusy(false); setMode('chat'); setMessages([]); setProduct(''); setInput(''); setError(''); setRetryText(''); setSaved(false); setQuoteDraft(null); setEmotion('calm');
+    setOpen(false); setBusy(false); setMode('chat'); setMessages([]); setProduct(''); setInput(''); setError(''); setRetryText(''); setSaved(false); setQuoteDraft(null); setShowExpressions(false); setEmotion('calm');
   }, [path]);
 
   useEffect(() => {
@@ -88,10 +90,10 @@ export function LumiAssistant() {
     if (value) {
       if (!messages.length) setMessages([{ id: ++sequence.current, role: 'lumi', text: lumiGreeting(path), suggestions: starters }]);
       if (busy) setEmotion('thinking');
-      else react(saved ? 'delighted' : 'welcoming', 'attentive');
+      else react(saved ? 'delighted' : 'welcoming', 'attentive', 2600);
     } else {
       if (!busy) react('calm');
-      setMode('chat'); setQuoteDraft(null);
+      setMode('chat'); setQuoteDraft(null); setShowExpressions(false);
     }
   }
 
@@ -106,6 +108,7 @@ export function LumiAssistant() {
     const request = new AbortController();
     controller.current = request;
     const timeout = setTimeout(() => request.abort(), 12000);
+    const startedAt = performance.now();
     try {
       const response = await fetch('/api/lumi', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ message, path, product }), signal: request.signal });
       const data = await response.json() as LumiReply & { error?: string };
@@ -113,7 +116,10 @@ export function LumiAssistant() {
       if (controller.current !== request) return;
       if (data.product) setProduct(data.product);
       setMessages(previous => [...previous, { ...data, id: ++sequence.current, role: 'lumi' }]);
-      react('welcoming', 'attentive', 1200);
+      // Let a fast reply arrive immediately while finishing the visible thinking gesture.
+      const remainingGesture = Math.max(0, 900 - (performance.now() - startedAt));
+      const responseEmotion = /\b(thanks|thank you|great|perfect)\b/i.test(message) ? 'delighted' : 'welcoming';
+      emotionTimer.current = setTimeout(() => react(responseEmotion, 'attentive', 2200), remainingGesture);
     } catch (cause) {
       if (controller.current !== request) return;
       setError(cause instanceof Error && cause.name !== 'AbortError' ? cause.message : 'Lumi is taking a little longer. Please retry or contact the team.');
@@ -131,17 +137,18 @@ export function LumiAssistant() {
   return <div className="lumi-root" data-motion={animated ? 'on' : 'off'}>
     <Dialog open={open} onOpenChange={changeOpen} modal={false}>
       <DialogTrigger asChild>
-        <button className={`lumi-launcher ${open ? 'lumi-launcher-open' : ''}`} aria-label={open ? 'Close Lumi product guide' : 'Chat with Lumi, the SignAds product guide'} onPointerEnter={() => { if (!open && !busy) react('curious'); }} onFocus={() => { if (!open && !busy) react('curious'); }}>
+        <button className={`lumi-launcher ${open ? 'lumi-launcher-open' : ''}`} aria-label={open ? 'Close Lumi product guide' : 'Chat with Lumi, the SignAds product guide'} onPointerEnter={() => { if (!open && !busy) { if (emotionTimer.current) clearTimeout(emotionTimer.current); setEmotion('curious'); } }} onPointerLeave={() => { if (!open && !busy) react('calm'); }} onFocus={() => { if (!open && !busy) react('curious'); }}>
           {open ? <X size={22} aria-hidden="true" /> : <><Mascot emotion={emotion} /><span className="lumi-launcher-label">Ask Lumi <span aria-hidden="true">↗</span></span></>}
         </button>
       </DialogTrigger>
-      <DialogContent className="lumi-panel" data-motion={animated ? 'on' : 'off'} showCloseButton={false} onInteractOutside={event => event.preventDefault()} onOpenAutoFocus={event => { event.preventDefault(); composer.current?.focus({ preventScroll: true }); }}>
+      <DialogContent className="lumi-panel" style={{ translate: 'none' }} data-motion={animated ? 'on' : 'off'} showCloseButton={false} onInteractOutside={event => event.preventDefault()} onOpenAutoFocus={event => { event.preventDefault(); composer.current?.focus({ preventScroll: true }); }}>
         <header className="lumi-header">
           <Mascot emotion={emotion} />
-          <div><DialogTitle className="lumi-title">Lumi</DialogTitle><DialogDescription className="lumi-description">Your SignAds product guide</DialogDescription></div>
+          <div><DialogTitle className="lumi-title">Lumi</DialogTitle><DialogDescription className="lumi-description">Your SignAds product guide</DialogDescription><button className="lumi-meet" aria-expanded={showExpressions} aria-controls="lumi-expressions" onClick={() => { setShowExpressions(!showExpressions); if (!busy) react('curious', 'attentive', 2500); }}>Meet Lumi <span aria-hidden="true">{showExpressions ? '−' : '+'}</span></button></div>
           <button className="lumi-icon-button" type="button" onClick={() => { setMotion(!motion); try { localStorage.setItem('signads-lumi-motion', motion ? 'off' : 'on'); } catch { /* Preference remains active for this visit. */ } }} disabled={reduced} aria-label={reduced ? 'Motion disabled by your device preference' : motion ? 'Pause Lumi animations' : 'Enable Lumi animations'} title={reduced ? 'Reduced motion enabled' : motion ? 'Pause animations' : 'Enable animations'}>{animated ? <Pause size={17} /> : <Play size={17} />}</button>
           <button className="lumi-icon-button" type="button" aria-label="Close Lumi" onClick={() => changeOpen(false)}><X size={20} /></button>
         </header>
+        {showExpressions && <div id="lumi-expressions" className="lumi-expressions" aria-label="Try Lumi’s six expressions"><span className="lumi-expression-heading">A little personality. Tap an expression.</span><div>{(Object.keys(poses) as Emotion[]).map(mood => <button key={mood} aria-pressed={emotion === mood} disabled={busy} onClick={() => react(mood, 'attentive', 5000)}><Mascot emotion={mood}/><span>{emotionNames[mood]}</span></button>)}</div></div>}
         <div className="lumi-chat-body" hidden={mode !== 'chat'}>
           <div className="lumi-conversation" ref={transcript} role="log" aria-label="Conversation with Lumi" aria-live="polite" aria-relevant="additions text">
             {messages.map(message => <div key={message.id} className={`lumi-message lumi-message-${message.role}`}><span className="lumi-speaker">{message.role === 'visitor' ? 'You' : 'Lumi'}</span><p>{message.text}</p>{message.link && <Link className="lumi-message-link" href={message.link.href} target={message.link.href.startsWith('https:') ? '_blank' : undefined} rel={message.link.href.startsWith('https:') ? 'noreferrer' : undefined}>{message.link.label}<ArrowUpRight size={15} /></Link>}{message.quote && <button className="lumi-primary" onClick={showQuote}>Prepare my enquiry <ArrowUpRight size={16} /></button>}</div>)}
