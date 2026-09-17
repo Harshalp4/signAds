@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {ArrowUpRight,ArrowDown,ArrowLeft,ArrowRight} from 'lucide-react';
 import {Carousel,CarouselContent,CarouselItem,type CarouselApi} from '@/components/ui/carousel';
 import {Content,hrefFor,imageUrl} from '@/lib/content';
-import {DayNight,Reveal} from './motion';
+import {DayNight} from './motion';
 import {Portfolio} from './portfolio';
 
 const selections=['restaurant-day-night','reception-lettering','tempo-campaign','jewellery-storefront'];
@@ -28,7 +28,7 @@ export function WorkExperience({items}:{items:Content[]}){
    <div className="work-filmstrip" aria-label="Choose a featured project">{featured.map((p,i)=><button key={p.id} type="button" aria-pressed={i===selected} onClick={()=>go(i)}><img src={imageUrl(p.image)} alt="" width="96" height="64" loading="lazy"/><span><small>0{i+1} / {p.industry}</small>{p.application}</span><ArrowUpRight size={17}/></button>)}</div>
   </Carousel>}
   </div></section>
-  <section id="work-archive" className="work-archive wrap"><Reveal className="work-archive-heading"><div><p className="eyebrow">The project archive</p><h2>Different settings.<br/><em>A physical presence.</em></h2></div><p>Browse the photographs by service, industry or application. Open a project to see its notes and related formats.</p></Reveal><Portfolio items={items}/><p className="work-source">Photographs from the SignAds company profiles. Dates, locations and project outcomes are included only when confirmed.</p></section>
+  <section id="work-archive" className="work-archive wrap"><Portfolio items={items}/><p className="work-source">Photographs from the SignAds company profiles. Dates, locations and project outcomes are included only when confirmed.</p></section>
   <section className="work-end"><div className="wrap"><p className="eyebrow">Inspired by something here?</p><h2>Let’s picture it<br/><em>in your space.</em></h2><Link href="/contact?brief=I%20saw%20a%20project%20in%20your%20portfolio%20and%20would%20like%20to%20discuss%20something%20similar.%20" className="button">Discuss your project <ArrowUpRight size={19}/></Link><Link href="/solutions" className="work-end-secondary">Explore ideas for your business <ArrowUpRight size={17}/></Link></div></section>
  </main>
 }
