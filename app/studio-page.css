@@ -1,0 +1,218 @@
+/* ============================================================
+   Sign studio page — the configurator gets its own room
+   Structure follows the Interactive 3D Configurator pattern:
+   configurator first, then what the materials mean, then the CTA.
+   ============================================================ */
+
+.studio-page{background:#101110;color:#f4f5f0}
+.studio-page-head{padding-block:clamp(2rem,1.5rem + 2vw,3rem) clamp(1.25rem,1rem + 1.2vw,1.75rem)}
+.studio-page .eyebrow{color:#ffae65}
+.studio-page-head h1{
+  font-size:var(--d2);line-height:1.06;letter-spacing:-.04em;
+  margin:.7rem 0 0;max-inline-size:16ch;
+}
+.studio-page-head h1 em{
+  font-family:var(--editorial-serif);font-style:italic;font-weight:400;
+  color:#ffae65;letter-spacing:-.03em;
+}
+.studio-page-deck{
+  font-size:var(--t-lead);line-height:1.6;color:#b4b8ac;
+  max-inline-size:58ch;margin-top:.9rem;
+}
+
+.studio-page-build{padding-bottom:clamp(2rem,1.5rem + 2vw,3rem)}
+
+/* --- Builder layout: stage left, controls right ------------------------- */
+
+.sign-builder{
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.9fr);
+  gap:clamp(20px,2.4vw,40px);align-items:start;
+}
+.build-stage-wrap{position:sticky;top:96px}
+.build-stage{aspect-ratio:16/10;min-height:0;display:grid;place-items:center;overflow:hidden}
+.build-sign{
+  font-size:calc(clamp(1.4rem,.7rem + 3.4vw,3.4rem) * var(--sign-scale,1));
+  line-height:1.1;text-align:center;overflow-wrap:anywhere;max-inline-size:94%;
+}
+
+/* Surfaces the sign is mounted on. */
+.build-stage[data-surface=brick]{background:
+  repeating-linear-gradient(0deg,#00000026 0 1px,#0000 1px 34px),
+  repeating-linear-gradient(90deg,#00000026 0 1px,#0000 1px 76px),
+  linear-gradient(176deg,#4a3a33 0%,#33272200 60%),#2b2320}
+.build-stage[data-surface=painted]{background:linear-gradient(176deg,#3c3f3b 0%,#24262300 70%),#1f211e}
+.build-stage[data-surface=acp]{background:
+  repeating-linear-gradient(90deg,#ffffff0d 0 1px,#0000 1px 122px),
+  linear-gradient(176deg,#3a4045 0%,#22262900 70%),#1c1f21}
+.build-stage[data-surface=glass]{background:
+  linear-gradient(112deg,#ffffff0f 0 18%,#0000 18% 34%,#ffffff0a 34% 46%,#0000 46%),
+  linear-gradient(176deg,#2b3338 0%,#171c1f 100%)}
+.build-stage[data-surface=wood]{background:
+  repeating-linear-gradient(90deg,#00000030 0 2px,#0000 2px 26px),
+  linear-gradient(176deg,#4a3526 0%,#2a1e15 100%)}
+.build-stage[data-night]{box-shadow:inset 0 0 160px #000000a6}
+.build-stage:not([data-night]){filter:brightness(1.5) saturate(.9)}
+
+.build-stage-bar{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:10px 18px;margin-top:12px;
+}
+.build-caption{font-size:12px;line-height:1.5;color:#90968c;max-inline-size:46ch}
+.build-light{
+  display:flex;height:38px;flex:none;
+  border:1px solid #474a45;border-radius:4px;overflow:hidden;background:#1c1e1c;
+}
+.build-light button{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-width:4.75rem;padding:0 14px;
+  font-size:.8125rem;color:#b4b8ac;background:transparent;border:0;cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.build-light button+button{border-left:1px solid #474a45}
+.build-light button:hover{background:#242622;color:#f4f5f0}
+.build-light button[aria-pressed=true]{background:#ffae65;color:#171918;font-weight:600}
+.build-light button:focus-visible{outline:3px solid #ffae65;outline-offset:-3px}
+
+/* --- Controls ------------------------------------------------------------ */
+
+.build-panel{display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px)}
+.build-group{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.build-group>legend,.build-name-label{
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:#8f948a;padding:0;
+}
+.build-group input[type=text]{
+  font:inherit;font-size:.9375rem;height:42px;padding:0 13px;
+  color:#f4f5f0;background:#1c1e1c;border:1px solid #474a45;border-radius:4px;
+}
+.build-group input[type=text]::placeholder{color:#7d817a}
+.build-group input[type=text]:focus-visible{outline:3px solid #ffae65;outline-offset:2px;border-color:#ffae65}
+
+.build-options{display:flex;flex-wrap:wrap;gap:7px}
+.build-group.is-columns .build-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.build-options>label{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:38px;padding:0 13px;
+  border:1px solid #3a3d38;border-radius:4px;background:#191b19;
+  font-size:.8125rem;color:#c2c6bb;cursor:pointer;
+  transition:border-color .2s,background .2s,color .2s;
+}
+.build-options>label:hover{border-color:#6d7169;background:#212320}
+.build-options>label.is-selected{border-color:#ffae65;background:#2a221a;color:#ffd3a8;font-weight:600}
+.build-options input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
+.build-options>label:has(input:focus-visible){outline:3px solid #ffae65;outline-offset:2px}
+.build-options i{width:13px;height:13px;border-radius:50%;flex:none;border:1px solid #00000059}
+
+/* --- The brief ----------------------------------------------------------- */
+
+.build-brief{
+  margin-top:4px;padding:clamp(16px,1.7vw,22px);
+  border:1px solid #ffae6540;border-radius:4px;
+  background:linear-gradient(180deg,#1e1a15 0%,#161715 100%);
+}
+.build-brief h3{font-size:var(--t-h3);letter-spacing:-.02em;margin:0 0 12px}
+.build-brief dl{margin:0;display:flex;flex-direction:column;gap:0}
+.build-brief dl>div{
+  display:flex;justify-content:space-between;gap:16px;
+  padding:7px 0;border-bottom:1px solid #ffffff14;font-size:.8125rem;
+}
+.build-brief dt{color:#9b9f95}
+.build-brief dd{margin:0;color:#f4f5f0;font-weight:500;text-align:right}
+.build-note{font-size:11px;line-height:1.55;color:#90968c;margin:12px 0 14px}
+.build-cta{width:100%;justify-content:space-between;min-height:46px;height:46px}
+.build-cta:hover{transform:none;background:#f1742d}
+
+/* --- Material notes ------------------------------------------------------ */
+
+.studio-page-notes{background:transparent}
+.studio-page-notes .section-heading h2{color:#f4f5f0}
+.studio-page-notes .section-heading>p:not(.eyebrow){color:#b4b8ac}
+.material-notes{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));
+  gap:0;margin:0 0 clamp(20px,2.2vw,30px);border-top:1px solid #ffffff1f;
+}
+.material-notes>div{padding:18px clamp(14px,1.6vw,26px) 22px;border-bottom:1px solid #ffffff1f}
+.material-notes>div+div{border-left:1px solid #ffffff1f}
+.material-notes dt{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:var(--t-h3);letter-spacing:-.025em;margin-bottom:8px;
+}
+.material-notes dd{margin:0;font-size:var(--t-small);line-height:1.6;color:#b4b8ac}
+.studio-page .text-link{color:#f4f5f0;border-color:#777e71}
+.studio-page .text-link:hover{color:#ffae65}
+
+@media(max-width:900px){
+  .build-light{height:46px}
+  .sign-builder{grid-template-columns:minmax(0,1fr)}
+  .build-stage-wrap{position:static}
+  .build-stage{aspect-ratio:3/2}
+  .build-options>label{min-height:44px}
+  .material-notes>div+div{border-left:0}
+}
+@media(max-width:560px){
+  .build-group.is-columns .build-options{grid-template-columns:minmax(0,1fr)}
+  .build-stage{aspect-ratio:4/3}
+}
+@media(prefers-reduced-motion:reduce){
+  .build-options>label{transition:none}
+}
+
+/* --- Finish: the control that actually tints the sign --------------------
+   Each finish sets a face colour and the colour of the light it throws;
+   the material rules below consume both. Without this the Finish group was
+   a dead control — picking Gold changed nothing. */
+.build-stage[data-finish=warm]{--face:#ffe9cf;--glow:#ff8b33;--edge:#b98a54}
+.build-stage[data-finish=cool]{--face:#eef4ff;--glow:#8fc0ff;--edge:#6d8299}
+.build-stage[data-finish=orange]{--face:#ffb066;--glow:#ff650b;--edge:#a8521a}
+.build-stage[data-finish=gold]{--face:#f2d49b;--glow:#d9a441;--edge:#8e6a28}
+.build-stage[data-finish=chrome]{--face:#e6ebf1;--glow:#9fb2c4;--edge:#6f7d8b}
+
+.build-sign{
+  position:relative;z-index:1;
+  transition:color .35s ease,text-shadow .35s ease,background .35s ease,-webkit-text-stroke-color .35s ease;
+}
+
+/* Metal: a brushed face; after dark a tight halo behind it. */
+.build-stage[data-material=metal] .build-sign{
+  color:transparent;
+  background:linear-gradient(178deg,#ffffff 2%,var(--face) 30%,var(--edge) 54%,var(--face) 76%,var(--edge) 100%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(2px 3px 1px #0000005e);
+}
+.build-stage[data-material=metal][data-night] .build-sign{
+  filter:drop-shadow(0 0 4px var(--glow)) drop-shadow(0 0 20px var(--glow)) drop-shadow(0 2px 3px #000000a6);
+}
+
+/* Neon: an unlit tube by day, a lit line after dark. */
+.build-stage[data-material=neon] .build-sign{
+  color:transparent;-webkit-text-fill-color:transparent;
+  -webkit-text-stroke:2px #93897c;
+}
+.build-stage[data-material=neon][data-night] .build-sign{
+  -webkit-text-stroke:2px var(--face);
+  text-shadow:0 0 6px var(--face),0 0 18px var(--glow),0 0 44px var(--glow);
+}
+
+/* Backlit: a solid face on a lit box. */
+.build-stage[data-material=backlit] .build-sign{
+  color:#221c14;-webkit-text-fill-color:#221c14;
+  background:var(--face);padding:.26em .5em;border-radius:3px;
+  box-shadow:0 6px 18px #00000047;
+}
+.build-stage[data-material=backlit][data-night] .build-sign{
+  box-shadow:0 0 0 1px #ffffff26,0 0 40px var(--glow),0 0 110px var(--glow);
+}
+
+/* Painted: no illumination at all, by design. */
+.build-stage[data-material=painted] .build-sign{
+  color:var(--face);-webkit-text-fill-color:var(--face);
+  filter:drop-shadow(1px 2px 1px #00000073);
+}
+
+@media(prefers-reduced-motion:reduce){
+  .build-sign{transition:none}
+}
+
+/* The homepage teaser points at the full builder. */
+.studio-more{display:inline-flex;align-items:center;gap:7px;margin-top:10px;color:#ffae65;border-color:#7a6247}
+.studio-more:hover{color:#ffd0a5}

@@ -1,0 +1,324 @@
+/* ============================================================
+   About page + the "see your name in lights" sign studio
+   ============================================================ */
+
+.about-page .about-manifesto{padding:clamp(48px,6vw,84px) 0 clamp(32px,4vw,52px)}
+.about-page .about-manifesto h1{
+  font-size:clamp(2.75rem,1.6rem + 5.4vw,6.5rem);
+  line-height:1.03;letter-spacing:-.045em;
+  max-inline-size:16ch;margin-top:1.5rem;text-wrap:balance;
+}
+.about-page .about-manifesto h1 em{
+  font-family:var(--editorial-serif);font-style:italic;font-weight:400;
+  color:#a64a18;letter-spacing:-.03em;
+}
+.about-lead{font-size:var(--t-lead);line-height:1.65;color:#5d6159;max-inline-size:56ch;margin-top:1.75rem}
+
+/* --- Managing Director --------------------------------------------------- */
+
+.about-leader{
+  display:grid;grid-template-columns:minmax(0,.62fr) minmax(0,1fr);
+  gap:clamp(24px,3.5vw,64px);align-items:start;
+  padding-block:clamp(40px,5vw,72px);
+}
+.leader-portrait{margin:0;position:relative}
+.leader-portrait img{
+  width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%;
+  border-radius:4px;background:var(--mat);
+}
+.leader-portrait figcaption{
+  display:flex;flex-direction:column;gap:2px;
+  margin-top:16px;font-size:var(--t-small);color:#62665f;line-height:1.5;
+}
+.leader-portrait figcaption strong{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:1.0625rem;font-weight:600;color:var(--ink);letter-spacing:-.01em;
+}
+.leader-copy h2{
+  font-size:clamp(1.75rem,1.25rem + 2vw,2.75rem);
+  line-height:1.12;letter-spacing:-.035em;margin:1rem 0 1.5rem;
+  max-inline-size:20ch;text-wrap:balance;
+}
+.leader-copy p{font-size:var(--t-body);line-height:1.7;color:#5d6159;max-inline-size:56ch}
+.leader-copy p+p{margin-top:1rem}
+
+.leader-marks{
+  grid-column:1/-1;list-style:none;margin:clamp(24px,3vw,44px) 0 0;padding:0;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.leader-marks li{
+  display:flex;flex-direction:column;gap:8px;
+  padding:22px clamp(16px,2vw,28px) 24px;
+  font-size:var(--t-small);line-height:1.6;color:#62665f;
+}
+.leader-marks li+li{border-left:1px solid var(--border)}
+.leader-marks li:first-child{padding-left:0}
+.leader-marks span{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:1.0625rem;font-weight:600;color:var(--ink);letter-spacing:-.015em;
+}
+
+/* --- Sign studio --------------------------------------------------------- */
+
+.about-studio{background:#111211;color:#f4f5f0;padding-block:clamp(52px,6vw,92px);margin-top:clamp(24px,3vw,44px)}
+.studio-heading{
+  display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+  gap:clamp(20px,3vw,64px);align-items:end;
+  margin-bottom:clamp(28px,3.5vw,48px);
+}
+.studio-heading>.eyebrow{grid-column:1/-1}
+.studio-heading h2{margin:0}
+.studio-heading>p{padding-bottom:.3rem}
+.about-studio .eyebrow{color:#ffae65}
+.studio-heading h2{
+  font-size:clamp(1.9rem,1.3rem + 2.6vw,3.25rem);
+  line-height:1.08;letter-spacing:-.04em;text-wrap:balance;max-inline-size:18ch;
+}
+.studio-heading p{font-size:var(--t-body);line-height:1.7;color:#b4b8ac;max-inline-size:52ch}
+
+.sign-studio{display:grid;grid-template-columns:minmax(0,19rem) minmax(0,1fr);gap:clamp(24px,3vw,52px);align-items:start}
+
+.studio-field{display:flex;flex-direction:column;gap:9px;font-size:var(--t-small);font-weight:600;letter-spacing:.02em}
+.studio-field input{
+  font:inherit;font-weight:400;font-size:1.0625rem;
+  padding:13px 15px;min-height:48px;
+  color:#f4f5f0;background:#1c1e1c;
+  border:1px solid #474a45;border-radius:4px;
+  transition:border-color .2s,background .2s;
+}
+.studio-field input::placeholder{color:#7d817a}
+.studio-field input:hover{border-color:#6d7169}
+.studio-field input:focus-visible{outline:3px solid #ffae65;outline-offset:2px;border-color:#ffae65}
+.studio-field small{font-weight:400;font-size:12px;color:#8f938a;letter-spacing:0}
+
+.studio-materials{border:0;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
+.studio-materials legend{
+  font-size:var(--t-label);font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:#9ea296;padding:0;margin-bottom:12px;
+}
+.studio-materials label{
+  display:flex;align-items:center;gap:12px;
+  min-height:48px;padding:0 15px;
+  border:1px solid #474a45;border-radius:4px;cursor:pointer;
+  font-size:var(--t-small);
+  transition:border-color .2s,background .2s,color .2s;
+}
+.studio-materials label:hover{border-color:#7f847b;background:#1a1c1a}
+.studio-materials label.is-selected{border-color:#ffae65;background:#221d18;color:#ffd0a5}
+.studio-materials input{
+  appearance:none;-webkit-appearance:none;margin:0;flex:none;
+  width:17px;height:17px;border-radius:50%;
+  border:1px solid #7f847b;background:transparent;transition:border-color .2s;
+}
+.studio-materials input:checked{border-color:#ffae65;border-width:5px}
+.studio-materials input:focus-visible{outline:3px solid #ffae65;outline-offset:3px}
+.studio-note{margin-top:14px;font-size:var(--t-small);line-height:1.6;color:#9ea296;max-inline-size:34ch}
+
+/* The stage. A wall, and a sign on it. */
+.studio-stage{
+  position:relative;display:grid;place-items:center;
+  aspect-ratio:16/9;min-height:230px;padding:clamp(20px,4vw,48px);
+  border-radius:4px;overflow:hidden;
+  background:linear-gradient(176deg,#cfcabf 0%,#b3ada1 52%,#918b80 100%);
+  transition:background .5s ease;
+}
+.studio-stage[data-night]{background:linear-gradient(176deg,#23252a 0%,#15171b 55%,#0b0c0e 100%)}
+/* A faint wall texture so the sign reads as an object on a surface. */
+.studio-stage::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:repeating-linear-gradient(90deg,#0000 0 78px,#00000010 78px 80px);
+}
+.studio-sign{
+  position:relative;z-index:1;text-align:center;
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-weight:600;letter-spacing:-.02em;line-height:1.1;
+  font-size:clamp(1.75rem,1rem + 4.4vw,4rem);
+  overflow-wrap:anywhere;
+  transition:color .45s ease,text-shadow .45s ease,-webkit-text-stroke-color .45s ease;
+}
+
+/* Metal letters: a brushed face with depth, halo-lit after dark. */
+.studio-stage[data-material=metal] .studio-sign{
+  color:#6e7178;
+  background:linear-gradient(178deg,#fbfbf9 4%,#c3c6cc 34%,#787c84 52%,#d9dce1 72%,#8f939a 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(2px 4px 1px #0000004d);
+}
+.studio-stage[data-material=metal][data-night] .studio-sign{
+  background:linear-gradient(178deg,#9ba0a8 4%,#5c6067 36%,#393c42 54%,#7c818a 74%,#4a4e55 100%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 0 3px #ffcb94) drop-shadow(0 0 14px #ff9d4ecc) drop-shadow(0 2px 3px #000000a6);
+}
+
+/* Neon: an unlit glass tube by day, a lit line after dark. */
+.studio-stage[data-material=neon] .studio-sign{
+  color:#0000;-webkit-text-fill-color:#0000;
+  -webkit-text-stroke:2px #8d8479;
+  filter:drop-shadow(1px 2px 1px #0003);
+}
+.studio-stage[data-material=neon][data-night] .studio-sign{
+  -webkit-text-stroke:2px #fff4e8;
+  filter:none;
+  text-shadow:0 0 6px #fff,0 0 16px #ff8b33,0 0 34px #ff650b,0 0 68px #ff650bcc;
+}
+
+/* Backlit acrylic: a solid face on a lit box. */
+.studio-stage[data-material=backlit] .studio-sign{
+  color:#1b1c1a;-webkit-text-fill-color:#1b1c1a;
+  background:#f2f1ec;padding:.28em .6em;border-radius:3px;
+  box-shadow:0 6px 18px #00000038;
+}
+.studio-stage[data-material=backlit][data-night] .studio-sign{
+  color:#3a2d20;-webkit-text-fill-color:#3a2d20;
+  background:#fff3e0;
+  box-shadow:0 0 0 1px #ffd9ab66,0 0 34px #ffc98033,0 0 90px #ffb35c26;
+}
+
+.studio-toolbar{
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;
+  margin-top:16px;
+}
+.studio-caption{font-size:12px;color:#8f938a}
+.studio-light{display:flex;gap:4px;padding:4px;border:1px solid #3d403b;border-radius:999px}
+.studio-light button{
+  display:flex;align-items:center;gap:7px;
+  min-height:40px;padding:0 16px;border-radius:999px;
+  font-size:var(--t-small);color:#b4b8ac;background:transparent;
+  cursor:pointer;transition:background .2s,color .2s;
+}
+.studio-light button:hover{color:#f4f5f0;background:#ffffff12}
+.studio-light button[aria-pressed=true]{background:#f4f5f0;color:#171918;font-weight:600}
+.studio-light button:focus-visible{outline:3px solid #ffae65;outline-offset:2px}
+
+.studio-cta{margin-top:22px;display:inline-flex}
+
+@media(max-width:900px){
+  .about-leader{grid-template-columns:minmax(0,1fr);gap:28px}
+  .leader-portrait img{aspect-ratio:3/2;object-position:50% 20%}
+  .sign-studio{grid-template-columns:minmax(0,1fr)}
+  .leader-marks li{grid-template-columns:minmax(0,1fr);gap:3px}
+}
+
+@media(max-width:560px){
+  .studio-stage{aspect-ratio:4/3;min-height:200px}
+  .studio-toolbar{flex-direction:column;align-items:stretch}
+  .studio-light{justify-content:center}
+  .studio-light button{flex:1;justify-content:center}
+  .studio-cta{width:100%;justify-content:space-between}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .studio-stage,.studio-sign,.studio-materials label,.studio-light button,.studio-field input{transition:none}
+}
+
+/* Full-width capability row stacks on narrow screens. */
+@media(max-width:760px){
+  .leader-marks{grid-template-columns:minmax(0,1fr)}
+  .leader-marks li{padding-inline:0}
+  .leader-marks li+li{border-left:0;border-top:1px solid var(--border)}
+}
+@media(max-width:900px){
+  .studio-heading{grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+  .studio-heading>p{padding-bottom:0}
+}
+
+/* ============================================================
+   Card studio — the visiting-card equivalent of the sign studio
+   ============================================================ */
+
+.product-studio{background:#eceee7;padding-block:clamp(48px,5.5vw,84px);margin-top:clamp(28px,3.5vw,52px)}
+.product-studio .studio-heading h2{color:var(--ink)}
+.product-studio .studio-heading p{color:#5d6159}
+.product-studio .eyebrow{color:#a64a18}
+
+.card-studio{display:grid;grid-template-columns:minmax(0,19rem) minmax(0,1fr);gap:clamp(24px,3vw,52px);align-items:start}
+.card-studio-controls{display:flex;flex-direction:column;gap:16px}
+
+/* Reuse the sign-studio field shapes, re-tuned for the light surface. */
+.product-studio .studio-field input{
+  color:var(--ink);background:#fff;border-color:#c8ccc2;
+}
+.product-studio .studio-field input::placeholder{color:#8c9187}
+.product-studio .studio-field input:hover{border-color:#9aa093}
+.product-studio .studio-field input:focus-visible{outline:3px solid #b83e00;outline-offset:2px;border-color:#b83e00}
+.product-studio .studio-materials{margin-top:8px}
+.product-studio .studio-materials legend{color:#62665f}
+.product-studio .studio-materials label{border-color:#c8ccc2;background:#fff}
+.product-studio .studio-materials label:hover{border-color:#9aa093;background:#f7f8f4}
+.product-studio .studio-materials label.is-selected{border-color:#b83e00;background:#fdf2ea;color:#8f3100}
+.product-studio .studio-materials input{border-color:#9aa093}
+.product-studio .studio-materials input:checked{border-color:#b83e00;border-width:5px}
+.product-studio .studio-materials input:focus-visible{outline:3px solid #b83e00;outline-offset:3px}
+.product-studio .studio-note{color:#62665f}
+.product-studio .studio-caption{color:#62665f}
+
+/* The scene: a surface the card sits on, lit from the upper left. */
+.card-scene{
+  display:grid;place-items:center;
+  aspect-ratio:16/10;min-height:260px;padding:clamp(20px,3vw,44px);
+  border-radius:4px;
+  background:radial-gradient(120% 90% at 26% 14%,#fbfbf8 0%,#e4e6de 46%,#c8cbc1 100%);
+  perspective:1400px;
+}
+.card-object{
+  position:relative;width:min(100%,430px);aspect-ratio:90/54;
+  transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.2,.65,.25,1);
+}
+.card-object[data-face=back]{transform:rotateY(180deg)}
+
+.card-face{
+  position:absolute;inset:0;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:space-between;
+  gap:10px;padding:clamp(15px,7%,30px);
+  border-radius:3px;
+  /* Hairline edges read as paper thickness; the cast shadow lives here rather
+     than on the parent, which must stay a clean 3D context. */
+  box-shadow:inset 0 1px 0 #ffffffb3,inset 0 -1px 0 #00000014,0 14px 24px #00000026;
+}
+.card-back{transform:rotateY(180deg)}
+
+.card-object[data-stock=ivory] .card-face{background:#f4efe2;color:#2c2a24}
+.card-object[data-stock=white] .card-face{background:#fdfdfb;color:#1b1c1a}
+.card-object[data-stock=orange] .card-face{background:#d4520a;color:#fff6ee}
+
+.card-mark{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:clamp(1rem,3.4cqw,1.6rem);font-weight:600;letter-spacing:-.03em;line-height:1.1;
+  overflow-wrap:anywhere;
+}
+.card-front>span:first-child{margin-bottom:auto}
+.card-rule{display:none}
+.card-back{justify-content:flex-end}
+.card-tag{font-size:clamp(.5rem,1.5cqw,.6875rem);letter-spacing:.14em;text-transform:uppercase;opacity:.72;line-height:1.5}
+.card-name{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:clamp(.9rem,2.9cqw,1.35rem);font-weight:600;letter-spacing:-.025em;line-height:1.15;
+  overflow-wrap:anywhere;
+}
+.card-contact{font-size:clamp(.6875rem,2cqw,.9375rem);opacity:.78;line-height:1.5;overflow-wrap:anywhere}
+.card-object{container-type:inline-size}
+
+.card-flip{
+  display:inline-flex;align-items:center;gap:8px;
+  min-height:44px;padding:0 18px;border-radius:999px;
+  border:1px solid #b6bbaf;background:#fff;color:var(--ink);
+  font-size:var(--t-small);font-weight:600;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.card-flip:hover{background:#f2f3ee;border-color:#8f958a}
+.card-flip:focus-visible{outline:3px solid #b83e00;outline-offset:2px}
+
+@media(max-width:900px){
+  .card-studio{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:560px){
+  .card-scene{aspect-ratio:4/3;min-height:220px}
+  .card-flip{width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .card-object{transition:none}
+}

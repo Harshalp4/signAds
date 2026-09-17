@@ -1,0 +1,208 @@
+/* ============================================================
+   SignAds — redesign layer
+   Loaded after globals/brand-experience/editorial so it refines
+   rather than replaces them. Three concerns, in order:
+   1. type scale, measure and wrapping
+   2. image framing and treatment
+   3. section rhythm and composition
+   ============================================================ */
+
+:root{
+  /* Fluid type scale. Each step is min → max across 380–1440px. */
+  --t-label:clamp(.6875rem,.67rem + .08vw,.75rem);
+  --t-small:clamp(.8125rem,.79rem + .11vw,.875rem);
+  --t-body:clamp(1rem,.97rem + .14vw,1.0625rem);
+  --t-lead:clamp(1.0625rem,1rem + .3vw,1.25rem);
+  --t-h3:clamp(1.375rem,1.2rem + .78vw,1.75rem);
+  --t-h2:clamp(2rem,1.5rem + 2.2vw,3.4rem);
+  --t-h1:clamp(2.75rem,1.9rem + 4vw,5.25rem);
+
+  /* Reading measures. Bounded in ch so they hold at any font size. */
+  --measure:64ch;
+  --measure-tight:44ch;
+  --measure-card:36ch;
+
+  /* Vertical rhythm */
+  --space-section:clamp(4.5rem,2.8rem + 6.4vw,7.5rem);
+
+  /* Image framing */
+  --frame-light:1px solid #00000014;
+  --frame-dark:1px solid #ffffff1f;
+  --mat:#eceee7;
+  --mat-dark:#1d1f1d;
+}
+
+/* ------------------------------------------------------------
+   1. TYPOGRAPHY
+   ------------------------------------------------------------ */
+
+/* Balanced headings and orphan-free body copy. Both degrade to
+   normal wrapping where unsupported, so no layout depends on them. */
+h1,h2,h3,h4,.brand-manifesto h2,.section-heading h2{text-wrap:balance}
+p,li,dd,figcaption,summary,blockquote{text-wrap:pretty}
+
+/* Body copy gets a real measure instead of running the full column. */
+.section-heading>p,
+.brand-manifesto>div>p,
+.two-column p,
+.process-grid p,
+.intro-bottom>p,
+.detail-title .lead,
+.prose p{max-inline-size:var(--measure);line-height:1.68}
+
+.content-card>p,
+.solution-grid p,
+.brand-entry-caption p,
+.service-list p{max-inline-size:var(--measure-card);line-height:1.6}
+
+.section-heading>p{max-inline-size:var(--measure-tight)}
+
+/* Labels: consistent tracking and colour across light and dark. */
+.eyebrow{font-size:var(--t-label);letter-spacing:.16em;line-height:1.5}
+
+/* Display type. The serif italic accent has a far taller inline box
+   than the sans strut, so it needs its own optical size and leading
+   or it overflows the heading and crowds whatever follows. */
+.presence-copy h1{font-size:var(--t-h1);line-height:1.14;letter-spacing:-.04em;margin:1.6rem 0 0;max-inline-size:14ch}
+.presence-copy h1 em{display:block;font-size:.9em;line-height:1.04;letter-spacing:-.025em;max-inline-size:11ch}
+.presence-deck{font-size:var(--t-lead);line-height:1.65;max-inline-size:38ch;margin-top:1.6rem}
+
+.section-heading h2,.brand-manifesto h2{font-size:var(--t-h2);line-height:1.1;letter-spacing:-.04em}
+.content-card h3,.solution-grid h3,.brand-entry-caption h3{font-size:var(--t-h3);line-height:1.15;letter-spacing:-.03em}
+
+/* Hard line breaks inside body copy fight responsive reflow.
+   Neutralise them and let the measure above do the work. */
+.brand-entry-caption p br,
+.section-heading>p br,
+.two-column p br,
+.contact-copy>p br{display:none}
+
+/* ------------------------------------------------------------
+   2. IMAGES
+   ------------------------------------------------------------ */
+
+/* One frame treatment everywhere: a hairline so dark photographs
+   don't bleed into dark sections, and a mat while the file loads. */
+.card-image,.brand-entry-image,.detail-visual,.category-image,.product-image{
+  background:var(--mat);
+  border-radius:4px;
+  overflow:hidden;
+}
+.card-image{border:var(--frame-light)}
+.dark-section .card-image,.dark-section .brand-entry-image{background:var(--mat-dark);border:var(--frame-dark)}
+
+/* Frame the container, fill it with the photo. Ratios are chosen per
+   context rather than one ratio for photos that range 0.84 → 2.38. */
+.card-image{aspect-ratio:3/2}
+.card-image>img{width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center}
+.featured .card-image>img{aspect-ratio:auto}
+.product-grid .card-image{aspect-ratio:3/2}
+.product-grid .card-image>img{aspect-ratio:auto}
+
+/* Equal columns so the three featured cards share one baseline.
+   A wider first column pushed its meta row ~50px below the others. */
+.project-grid.featured{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+/* Product photography: show the whole format with no grey letterbox.
+   Sizing the image itself (rather than containing it inside a forced
+   3:2 box) removes the bands while still never cropping. */
+.product-image-set .detail-visual img{
+  aspect-ratio:auto;
+  width:auto;
+  max-width:100%;
+  height:auto;
+  max-height:min(60vh,540px);
+  object-fit:contain;
+  background:transparent;
+  margin-inline:auto;
+}
+.product-image-set .detail-visual{
+  background:var(--mat);
+  padding:clamp(14px,2.4vw,30px);
+  border:var(--frame-light);
+  border-radius:4px;
+  display:grid;
+}
+.product-image-set .detail-visual figcaption{padding-top:14px}
+
+/* Index thumbnails read as plates, not crops. */
+.editorial-index.with-thumbnails img{background:var(--mat);border:var(--frame-light);border-radius:3px}
+
+/* ------------------------------------------------------------
+   3. RHYTHM AND COMPOSITION
+   ------------------------------------------------------------ */
+
+.section{padding-block:var(--space-section)}
+
+/* The description sat bottom-right with a ragged edge. Give it its own
+   column, aligned to the heading's first baseline. */
+.section-heading{grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(18px,2vw,40px) clamp(32px,4vw,72px);align-items:end}
+.section-heading>p{align-self:end;padding-bottom:.35rem}
+
+/* The two entry cards were offset 85px, which left the left column
+   ending well short of the right. Halve the offset and let the
+   captions align on a shared row. */
+.brand-entry-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,3vw,48px);align-items:start}
+.brand-entry-sign{margin-top:clamp(0px,4vw,56px)}
+.brand-entry-image,.home-page .brand-entry-image,
+.brand-entry-sign .brand-entry-image,.home-page .brand-entry-sign .brand-entry-image{aspect-ratio:3/2}
+.brand-entry-caption{padding-top:20px}
+
+/* FAQ: the left column was a tall empty block beside the list. */
+@media(min-width:901px){
+  .faq-section>div:first-child{position:sticky;top:112px;align-self:start}
+}
+
+/* Solution cards need breathing room inside their rules. */
+.solution-grid>a{padding:clamp(20px,2vw,28px) clamp(16px,1.6vw,24px)}
+.solution-grid>a:first-child{padding-left:0}
+
+/* Closing band: anchor the empty half with the wordmark rule. */
+.quote-band h2{max-inline-size:16ch;line-height:1.05}
+
+@media(max-width:900px){
+  .section-heading{grid-template-columns:minmax(0,1fr)}
+  .section-heading>p{padding-bottom:0}
+  .brand-entry-grid{grid-template-columns:minmax(0,1fr);gap:40px}
+  .brand-entry-sign{margin-top:0}
+}
+
+/* ------------------------------------------------------------
+   4. COMPOSITION REFINEMENTS
+   ------------------------------------------------------------ */
+
+/* The eyebrow sat alone in a ~400px column while the right half of the row
+   stayed empty. Narrow the label column, then set the statement and its
+   paragraph side by side so the row is actually used. */
+.brand-manifesto{grid-template-columns:minmax(0,9rem) minmax(0,1fr);gap:clamp(18px,2.4vw,44px)}
+.brand-manifesto>div{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(24px,3.5vw,64px);align-items:end}
+.brand-manifesto h2{max-inline-size:none}
+.brand-manifesto>div>p{max-inline-size:38ch;margin-top:0;padding-bottom:.4rem}
+
+@media(max-width:1000px){
+  .brand-manifesto>div{grid-template-columns:minmax(0,1fr);gap:20px;align-items:start}
+  .brand-manifesto>div>p{padding-bottom:0}
+}
+
+/* Product plates were capped at 880px inside a 1328px column,
+   leaving 224px of dead gutter either side. */
+.product-image-set .detail-visual,
+.detail-print .product-image-set .detail-visual,
+.detail-signage .product-image-set .detail-visual,
+.detail-outdoor .product-image-set .detail-visual{width:min(100%,1060px)}
+.product-image-set.multiple .detail-visual{width:100%}
+
+/* Product intro: give the supporting column a measure and let the
+   title and description share a baseline. */
+.detail-title{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:clamp(28px,4vw,72px)}
+.detail-title h1{font-size:clamp(2.5rem,1.6rem + 4.2vw,5rem);line-height:1.04;letter-spacing:-.04em;max-inline-size:13ch}
+.detail-title .lead{max-inline-size:42ch}
+
+/* Long-form reading columns. */
+.detail-body .prose{max-inline-size:66ch}
+.prose p+p{margin-top:1.1em}
+
+@media(max-width:900px){
+  .brand-manifesto{grid-template-columns:minmax(0,1fr)}
+  .detail-title{grid-template-columns:minmax(0,1fr)}
+}

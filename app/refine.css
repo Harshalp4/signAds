@@ -1,0 +1,211 @@
+/* ============================================================
+   SignAds — type scale, density and motion refinement
+   Loaded last. Three jobs:
+   1. bring every display size down to a readable scale
+   2. tighten the vertical rhythm so sections stop drifting apart
+   3. give the flat sections some craft — stagger, hover, a ticker
+   ============================================================ */
+
+:root{
+  /* Display scale. Only the homepage hero gets --d1; every other page
+     heading starts at --d2. Previously headings ran to 132px. */
+  --d1:clamp(2.5rem,1.7rem + 3.4vw,4.25rem);    /* 40–68 */
+  --d2:clamp(2rem,1.45rem + 2.5vw,3.25rem);     /* 32–52 */
+  --d3:clamp(1.5rem,1.2rem + 1.5vw,2.25rem);    /* 24–36 */
+  --d4:clamp(1.2rem,1.05rem + .7vw,1.55rem);    /* 19–25 */
+
+  --space-section:clamp(2.75rem,1.9rem + 3.4vw,4.5rem);  /* 44–72 */
+  --ease-out:cubic-bezier(.22,.68,.28,1);
+}
+
+/* --- 1. DISPLAY SIZES --------------------------------------------------- */
+
+.brand-title-intro{font-size:clamp(2rem,1.4rem + 2.4vw,3rem)}
+.brand-title-impact{font-size:clamp(3rem,2rem + 4.6vw,5.5rem)}
+
+.presence-copy h1{font-size:var(--d1);line-height:1.1}
+.presence-copy h1 em{font-size:.92em;line-height:1.05}
+
+.hero h1,
+.page-intro h1,
+.category-hero h1,
+.enterprise-hero h1,
+.contact-copy h1,
+.project-intro h1,
+.article-heading h1,
+.product-detail h1,
+.editorial-heading h1,
+.signage-opening h1,
+.outdoor-opening h1,
+.detail-outdoor .detail-title h1,
+.detail-title h1,
+.article-editorial h1,
+.about-page .about-manifesto h1{
+  font-size:var(--d2);line-height:1.08;letter-spacing:-.035em;
+}
+
+.quote-band h2,
+.brand-manifesto h2,
+.section-heading h2,
+.category-introduction .section-heading h2,
+.catalogue-all .section-heading h2,
+.studio-heading h2,
+.editorial-cta h2,
+.about-image h2,
+.street-story h2,
+.detail-body h2,
+.about-copy h2,
+.leader-copy h2,
+.all-solutions h2,
+.quote-form h2,
+.solution-route>div>h2,
+.category-introduction h2{
+  font-size:var(--d3);line-height:1.12;letter-spacing:-.03em;
+}
+
+.content-card h3,.solution-grid h3,.brand-entry-caption h3,
+.editorial-index h3,.catalogue-column h3,.service-list h3,
+.process-grid h3,.format-title{
+  font-size:var(--d4);line-height:1.18;letter-spacing:-.025em;
+}
+
+/* Long headings no longer need three lines at these sizes. */
+.about-page .about-manifesto h1,.editorial-heading h1,.page-intro h1{max-inline-size:20ch}
+.quote-band h2{max-inline-size:18ch}
+.leader-copy h2,.studio-heading h2{max-inline-size:22ch}
+
+/* --- 2. DENSITY --------------------------------------------------------- */
+
+.section,.editorial-heading{padding-block:var(--space-section)}
+.editorial-heading{padding-block:clamp(2.25rem,1.6rem + 2.4vw,3.25rem) clamp(1.5rem,1.1rem + 1.6vw,2.25rem)}
+.about-page .about-manifesto{padding-block:clamp(2.25rem,1.6rem + 2.4vw,3.25rem) clamp(1.25rem,1rem + 1.2vw,2rem)}
+.about-leader,.category-introduction{padding-block:clamp(2rem,1.4rem + 2.2vw,3rem)}
+.detail-opening{padding-block:clamp(1.75rem,1.3rem + 1.8vw,2.5rem) clamp(2rem,1.5rem + 2vw,3rem)}
+.detail-body{padding-block:clamp(2.25rem,1.6rem + 2.4vw,3.25rem)}
+.quote-band{padding-block:clamp(2.5rem,1.8rem + 2.8vw,3.75rem)}
+.about-studio,.product-studio,.catalogue-all{padding-block:clamp(2.5rem,1.8rem + 2.8vw,4rem)}
+.presence-stage{min-height:0;padding-block:clamp(1.75rem,1.2rem + 2vw,2.75rem)}
+.brand-stage{min-height:0}
+
+/* --- 3. CRAFT ----------------------------------------------------------- */
+
+/* Staggered entrance for grids and lists. `--i` is set per child, so items
+   arrive in sequence rather than as one block. */
+@keyframes rise-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+.stagger>*{
+  opacity:0;
+  animation:rise-in .5s var(--ease-out) forwards;
+  animation-delay:calc(var(--i, 0) * 60ms);
+}
+.stagger.is-idle>*{animation:none;opacity:1}
+
+/* Photographs lift slightly and brighten on approach. */
+.editorial-index.catalogue-grid>a>img,
+.card-image>img,
+.brand-entry-image img{will-change:transform}
+.editorial-index.catalogue-grid>a:hover>img{transform:scale(1.04)}
+.editorial-index.catalogue-grid>a{transition:transform .35s var(--ease-out)}
+.editorial-index.catalogue-grid>a:hover{transform:translateY(-3px)}
+
+/* --- The capability ticker ---------------------------------------------- */
+
+.ticker{
+  position:relative;overflow:hidden;
+  border-block:1px solid var(--border);
+  background:#eceee7;
+  padding-block:clamp(14px,1.6vw,22px);
+}
+.dark-section .ticker,.ticker.on-dark{background:#191b19;border-color:#ffffff1f;color:#f4f5f0}
+.ticker-track{
+  display:flex;width:max-content;gap:0;
+  animation:ticker-slide var(--ticker-duration,42s) linear infinite;
+}
+.ticker[data-paused] .ticker-track{animation-play-state:paused}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+@keyframes ticker-slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+
+.ticker-group{display:flex;align-items:center;flex:none}
+.ticker-item{
+  display:inline-flex;align-items:center;gap:clamp(18px,2vw,34px);
+  padding-inline:clamp(18px,2vw,34px);
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:clamp(1rem,.85rem + .7vw,1.5rem);
+  font-weight:500;letter-spacing:-.02em;white-space:nowrap;
+}
+.ticker-item::after{
+  content:'';width:7px;height:7px;border-radius:50%;
+  background:var(--orange);flex:none;
+}
+.ticker-pause{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-width:44px;min-height:34px;padding:0 12px;border-radius:999px;
+  border:1px solid var(--border);background:#fff;color:var(--ink);
+  font-size:11px;font-weight:600;cursor:pointer;z-index:2;
+}
+.ticker.on-dark .ticker-pause{background:#22241f;border-color:#ffffff2e;color:#f4f5f0}
+.ticker-pause:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+
+@media(prefers-reduced-motion:reduce){
+  .stagger>*{animation:none;opacity:1}
+  .ticker-track{animation:none;width:100%;flex-wrap:wrap;justify-content:center}
+  .ticker-group:nth-child(2){display:none}
+  .editorial-index.catalogue-grid>a,
+  .editorial-index.catalogue-grid>a:hover>img{transition:none;transform:none}
+}
+
+/* --- Catalogue column counts by item count ------------------------------
+   Print holds 4, signage 5, outdoor 2. A fixed three-track grid stranded
+   Print's fourth card alone on a second row. `:has()` picks the count that
+   fills cleanly; the three-track rule above remains the fallback. */
+@media(min-width:1001px){
+  .editorial-index.catalogue-grid:has(> a:nth-child(4):last-child){
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
+  .editorial-index.catalogue-grid:has(> a:nth-child(2):last-child){
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    max-inline-size:60rem;
+  }
+}
+
+/* --- Stagger applied to the remaining flat lists ------------------------ */
+.project-grid.stagger>*,
+.solution-grid.stagger>*,
+.portfolio-grid.stagger>*{animation-delay:calc(var(--i, 0) * 55ms)}
+
+/* --- Page intros ---------------------------------------------------------
+   `.page-intro` carried 80px/65px and the section after it added another
+   72px, leaving a 137px dead band before the content began. */
+.page-intro,
+.category-hero,
+.enterprise-hero,
+.project-intro,
+.article-heading,
+.editorial-journal .editorial-heading{
+  padding-block:clamp(2rem,1.5rem + 2vw,3rem) clamp(1.1rem,.9rem + 1vw,1.6rem);
+}
+.intro-bottom{margin-top:clamp(.9rem,.7rem + .9vw,1.4rem)}
+.section.compact-top{padding-top:clamp(.9rem,.7rem + .9vw,1.5rem)}
+
+/* Intro copy was running the full column; bound it and pair it with its CTA. */
+.intro-bottom>p{max-inline-size:52ch;line-height:1.65}
+
+/* The day/night and enterprise rows left one column much shorter than the
+   other, which read as a hole rather than as whitespace. */
+.two-column{align-items:center}
+.daynight-section .two-column>div:first-child,
+.enterprise-teaser .two-column>div:first-child{align-self:center}
+
+/* --- Header quote button on small screens ---------------------------------
+   "Get a Quote" had no `white-space` rule, so it wrapped to two lines and
+   grew into a block that crowded the logo and the menu toggle. */
+.header-quote.button{white-space:nowrap}
+@media(max-width:800px){
+  .header-quote.button{gap:8px;padding:0 13px;min-height:42px;height:42px}
+}
+@media(max-width:430px){
+  .header-quote.button{font-size:11px;gap:6px;padding:0 10px}
+  .header-quote.button svg{width:14px;height:14px}
+  .site-header{gap:8px;padding-inline:16px}
+}

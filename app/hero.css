@@ -1,0 +1,400 @@
+/* ============================================================
+   The "try it" studio, directly below the hero
+   Reachable from the hero's own anchor; the hero itself is unchanged.
+   ============================================================ */
+
+/* The hero and this section were the same #111211, so they read as one
+   continuous black block with no boundary. The studio is now a distinct
+   surface, separated by a lit seam — light escaping the top edge of an
+   illuminated fascia, which is the object this section is about. */
+.home-studio{
+  position:relative;isolation:isolate;
+  background:linear-gradient(180deg,#1b1d1e 0%,#151718 38%,#111211 100%);
+  color:#f4f5f0;
+  padding-block:clamp(2.5rem,1.9rem + 2.6vw,3.75rem) clamp(2.25rem,1.7rem + 2.4vw,3.5rem);
+}
+/* The seam itself. */
+.home-studio::before{
+  content:'';position:absolute;inset-inline:0;top:0;height:2px;z-index:1;
+  background:linear-gradient(90deg,#ffae6500 0%,#ffae65 16%,#ffe0c2 50%,#ffae65 84%,#ffae6500 100%);
+  box-shadow:0 0 12px #ff8b3399,0 0 36px #ff650b40;
+  pointer-events:none;
+}
+/* The light it throws down onto the panel. */
+.home-studio::after{
+  content:'';position:absolute;inset-inline:0;top:0;height:clamp(90px,12vw,170px);z-index:0;
+  background:linear-gradient(180deg,#ff8b3322 0%,#ff8b330d 45%,transparent 100%);
+  pointer-events:none;
+}
+.home-studio>*{position:relative;z-index:1}
+.home-studio .eyebrow{color:#ffae65}
+.home-studio .studio-heading h2{color:#f4f5f0}
+.home-studio .studio-heading>p:not(.eyebrow){color:#b4b8ac}
+
+/* A fascia is wider than it is tall; 16:9 left the name floating in an
+   empty field. */
+.sign-studio .studio-stage{aspect-ratio:2.1}
+
+@media(max-width:560px){
+  .sign-studio .studio-stage{aspect-ratio:1.5}
+}
+
+/* ============================================================
+   Ticker: a lit sign band rather than a plain strip
+   ============================================================ */
+
+.ticker{
+  background:#131412;border-color:#ffffff1a;color:#f6f2ea;
+  padding-block:clamp(20px,2.2vw,30px);
+}
+/* Bulb runs along the top and bottom edge, the way a fascia is trimmed. */
+.ticker::before,.ticker::after{
+  content:'';position:absolute;left:0;right:0;height:6px;pointer-events:none;z-index:1;
+  background-image:radial-gradient(circle,#ffb877 0 1.6px,#ffb87733 2.2px,transparent 2.8px);
+  background-size:26px 6px;background-repeat:repeat-x;
+  opacity:.85;
+}
+.ticker::before{top:7px}
+.ticker::after{bottom:7px}
+.ticker-item{
+  color:#fff3e4;
+  text-shadow:0 0 4px #fff2e0,0 0 14px #ff8b3399,0 0 32px #ff650b66;
+}
+.ticker-item::after{
+  background:#ff8b33;
+  box-shadow:0 0 6px #ff8b33,0 0 14px #ff650bcc;
+}
+.ticker-pause{background:#24261f;border-color:#ffffff33;color:#f6f2ea}
+.ticker-pause:hover{background:#32352c}
+
+/* Reduced motion keeps the lit look but stops the travel. */
+@media(prefers-reduced-motion:reduce){
+  .ticker::before,.ticker::after{opacity:.6}
+}
+
+/* ============================================================
+   Catalogue columns — a photograph each, and a shared baseline
+   ============================================================ */
+
+.catalogue-column{display:flex;flex-direction:column;padding-top:0}
+.catalogue-shot{display:block;margin:0 0 16px;overflow:hidden;border-radius:4px;background:var(--mat)}
+.catalogue-shot img{
+  display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;
+  transition:transform .5s var(--ease-out);
+}
+.catalogue-column:hover .catalogue-shot img{transform:scale(1.04)}
+/* The badge sat inline after the title and knocked the three headings out of
+   alignment; it now has its own row, present in every column. */
+.catalogue-flag{min-height:22px;margin-bottom:6px}
+.catalogue-count{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8b9184}
+.catalogue-column h3{margin:0}
+.catalogue-note{margin-top:8px;min-height:2.9em}
+.catalogue-column ul{margin-top:auto;padding-top:16px}
+/* All three columns keep equal padding so their photographs match height. */
+.catalogue-columns{padding-inline:0}
+
+@media(prefers-reduced-motion:reduce){
+  .catalogue-shot img,.catalogue-column:hover .catalogue-shot img{transition:none;transform:none}
+}
+
+/* ============================================================
+   Solutions explorer
+   ============================================================ */
+
+.solution-explorer{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.78fr);
+  gap:clamp(26px,3vw,60px);align-items:start;
+  padding-bottom:clamp(2rem,1.5rem + 2vw,3rem);
+}
+.solution-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--border);counter-reset:none}
+.solution-rows>li{border-bottom:1px solid var(--border)}
+.solution-row{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  gap:clamp(14px,1.6vw,26px);align-items:start;
+  padding:clamp(14px,1.6vw,20px) 4px;
+  transition:padding-left .25s var(--ease-out),background .25s var(--ease-out);
+}
+.solution-number{font-size:12px;color:#8b9184;padding-top:5px;transition:color .25s}
+.solution-body{display:flex;flex-direction:column;gap:4px;min-width:0}
+.solution-title{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:var(--d4);font-weight:500;line-height:1.16;letter-spacing:-.025em;
+  transition:color .25s;
+}
+.solution-desc{font-size:var(--t-small);color:#62665f;line-height:1.55;max-inline-size:46ch}
+.solution-arrow{margin-top:6px;opacity:.4;transition:opacity .25s,transform .25s}
+
+.solution-rows>li.is-active .solution-row{background:#eceee6;padding-left:14px}
+.solution-rows>li.is-active .solution-title,
+.solution-rows>li.is-active .solution-number{color:#a64a18}
+.solution-rows>li.is-active .solution-arrow{opacity:1;transform:translate(4px,-4px)}
+.solution-row:focus-visible{outline:3px solid var(--ring);outline-offset:-3px}
+
+.solution-panel{position:sticky;top:108px}
+.solution-stage{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+  border-radius:4px;background:var(--mat);border:var(--frame-light);
+}
+.solution-stage img{
+  width:100%;height:100%;object-fit:cover;
+  animation:solution-fade .45s var(--ease-out);
+}
+@keyframes solution-fade{from{opacity:0;transform:scale(1.03)}to{opacity:1;transform:none}}
+.solution-panel-foot{
+  display:flex;justify-content:space-between;gap:14px;
+  margin-top:12px;font-size:12px;color:#62665f;
+}
+
+.solution-inline-media{display:none}
+
+@media(max-width:900px){
+  .solution-explorer{grid-template-columns:minmax(0,1fr)}
+  .solution-panel{display:none}
+  .solution-rows>li.is-active .solution-row{background:transparent;padding-left:4px}
+  .solution-rows>li.is-active .solution-title,
+  .solution-rows>li.is-active .solution-number{color:inherit}
+  .solution-inline-media{display:block;padding-bottom:clamp(14px,2.4vw,20px)}
+  .solution-inline-media img{
+    width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+    border-radius:4px;background:var(--mat);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .solution-row,.solution-number,.solution-title,.solution-arrow{transition:none}
+  .solution-stage img{animation:none}
+}
+
+/* ============================================================
+   About: portrait beside the statement
+   ============================================================ */
+
+.about-page .about-manifesto{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.62fr);
+  gap:clamp(24px,3.5vw,64px);align-items:center;
+}
+.about-page .about-manifesto .leader-portrait img{aspect-ratio:4/5}
+.about-leader{grid-template-columns:minmax(0,1fr)}
+.about-leader .leader-copy{max-inline-size:none}
+.about-leader .leader-copy p{max-inline-size:62ch}
+
+@media(max-width:900px){
+  .about-page .about-manifesto{grid-template-columns:minmax(0,1fr);gap:24px}
+  .about-page .about-manifesto .leader-portrait img{aspect-ratio:3/2}
+}
+
+/* With the portrait moved into the hero, the statement below was left alone in
+   a narrow column. Heading and prose now share the row. */
+.about-leader .leader-copy{
+  display:grid;
+  grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  gap:clamp(14px,1.6vw,22px) clamp(28px,4vw,72px);
+  align-items:start;
+}
+.about-leader .leader-copy>.eyebrow{grid-column:1;grid-row:1}
+.about-leader .leader-copy>h2{grid-column:1;grid-row:2;margin:0}
+.about-leader .leader-copy>p{grid-column:2;max-inline-size:56ch}
+.about-leader .leader-copy>p:first-of-type{grid-row:1}
+.about-leader .leader-copy>p+p{margin-top:0}
+
+@media(max-width:900px){
+  .about-leader .leader-copy{grid-template-columns:minmax(0,1fr)}
+  .about-leader .leader-copy>.eyebrow,
+  .about-leader .leader-copy>h2,
+  .about-leader .leader-copy>p{grid-column:1;grid-row:auto}
+  .about-leader .leader-copy>p+p{margin-top:.9rem}
+}
+
+/* ============================================================
+   Sign studio — compact rebuild
+   Was ~1100px tall: a 537px stage with the name floating in it,
+   three stacked material boxes, and the CTA stranded far below.
+   Now a fascia-proportioned stage over a single control bar.
+   ============================================================ */
+
+.sign-studio{display:block}
+
+.sign-studio .studio-stage{
+  aspect-ratio:3.8;min-height:0;
+  padding:clamp(16px,3vw,40px);
+  border-radius:4px;
+}
+.sign-studio .studio-sign{font-size:clamp(1.6rem,.9rem + 4.2vw,4.25rem)}
+
+/* --- The control bar ----------------------------------------------------- */
+
+.studio-bar{
+  display:flex;flex-wrap:wrap;align-items:flex-end;
+  gap:10px clamp(12px,1.4vw,20px);
+  margin-top:clamp(14px,1.6vw,20px);
+}
+.studio-cell{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.studio-cell-name{flex:1 1 13rem}
+.studio-cell-material{flex:0 1 auto}
+.studio-cell-light{flex:0 1 auto}
+
+.studio-cell>label,.studio-cell>legend,.studio-cell-label{
+  font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+  color:#8f948a;padding:0;
+}
+
+.studio-cell-name input{
+  font:inherit;font-size:.9375rem;
+  height:40px;padding:0 13px;
+  color:#f4f5f0;background:#1c1e1c;
+  border:1px solid #474a45;border-radius:4px;
+  transition:border-color .2s;
+}
+.studio-cell-name input::placeholder{color:#7d817a}
+.studio-cell-name input:hover{border-color:#6d7169}
+.studio-cell-name input:focus-visible{outline:3px solid #ffae65;outline-offset:2px;border-color:#ffae65}
+
+/* Segmented control, shared by material and light. */
+.studio-segments{
+  display:flex;height:40px;
+  border:1px solid #474a45;border-radius:4px;overflow:hidden;
+  background:#1c1e1c;
+}
+.studio-segments>label,.studio-segments>button{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  min-width:4.75rem;padding:0 clamp(10px,1.1vw,16px);
+  font-size:.8125rem;font-weight:500;color:#b4b8ac;
+  background:transparent;border:0;cursor:pointer;
+  transition:background .2s,color .2s;
+}
+.studio-segments>label+label,.studio-segments>button+button{border-left:1px solid #474a45}
+.studio-segments>label:hover,.studio-segments>button:hover{background:#26282400;color:#f4f5f0;background:#242622}
+.studio-segments>label.is-selected,.studio-segments>button[aria-pressed=true]{
+  background:#ffae65;color:#171918;font-weight:600;
+}
+.studio-segments input{position:absolute;opacity:0;pointer-events:none;width:0;height:0}
+.studio-segments>label:has(input:focus-visible),
+.studio-segments>button:focus-visible{outline:3px solid #ffae65;outline-offset:-3px}
+
+/* .button carries min-height:52px, which beat `height` and left the CTA
+   12px taller than every other control in the bar. */
+.sign-studio .studio-cta{
+  height:40px;min-height:40px;padding:0 18px;gap:10px;
+  font-size:.8125rem;margin:0;flex:0 0 auto;align-self:end;
+}
+/* The global lift would break the row it now sits in. */
+.sign-studio .studio-cta:hover{transform:none;background:#f1742d}
+
+.studio-footnote{
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;
+  margin-top:10px;font-size:12px;line-height:1.5;color:#8f948a;
+}
+
+/* The old two-column shell and its parts are gone. */
+.studio-controls,.studio-preview,.studio-materials,.studio-note,.studio-toolbar,.studio-field{display:none}
+
+@media(max-width:820px){
+  .sign-studio .studio-stage{aspect-ratio:2.2}
+  .studio-bar{gap:12px}
+  .studio-cell-name{flex:1 1 100%}
+  .studio-cell-material,.studio-cell-light{flex:1 1 auto}
+  .studio-segments{width:100%;height:46px}
+  .studio-segments>label,.studio-segments>button{flex:1}
+  .sign-studio .studio-cta{flex:1 1 100%;height:44px;min-height:44px;justify-content:space-between}
+}
+@media(max-width:520px){
+  .sign-studio .studio-stage{aspect-ratio:1.7}
+}
+@media(prefers-reduced-motion:reduce){
+  .studio-segments>label,.studio-segments>button,.studio-cell-name input{transition:none}
+}
+
+/* Tighter heading block above the bar. */
+.home-studio .studio-heading{margin-bottom:clamp(16px,1.8vw,24px);align-items:start;row-gap:10px}
+.home-studio .studio-heading>p:not(.eyebrow){padding-top:.35rem}
+
+/* ============================================================
+   Name wall — client names shown as the signs they became
+   Unlit by day. The Day/Night control lights the whole wall and
+   is the real affordance: hover lights one, but hover does not
+   exist on touch, so it is an enhancement only.
+   ============================================================ */
+
+.name-wall{
+  background:#101110;color:#f4f5f0;
+  padding-block:clamp(2.5rem,1.9rem + 2.6vw,4rem);
+  /* A faint brick of wall behind the signs. */
+  background-image:
+    linear-gradient(180deg,#15161500 0%,#0d0e0d 100%),
+    repeating-linear-gradient(90deg,#0000 0 92px,#ffffff08 92px 93px),
+    repeating-linear-gradient(0deg,#0000 0 62px,#ffffff06 62px 63px);
+}
+.name-wall .eyebrow{color:#ffae65}
+.name-wall .section-heading h2{color:#f4f5f0}
+.name-wall .section-heading>p:not(.eyebrow){color:#b4b8ac}
+
+.wall-head{
+  display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+  gap:16px 32px;margin-bottom:clamp(22px,2.4vw,34px);
+}
+.wall-head .section-heading{display:block;margin:0;flex:1 1 22rem}
+.wall-head .section-heading h2{margin:.5rem 0 .55rem}
+.wall-head .section-heading>p:not(.eyebrow){max-inline-size:46ch}
+
+.wall-light{display:flex;height:40px;border:1px solid #3d403b;border-radius:999px;overflow:hidden;flex:none}
+.wall-light button{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:0 16px;font-size:.8125rem;color:#b4b8ac;
+  background:transparent;border:0;cursor:pointer;transition:background .2s,color .2s;
+}
+.wall-light button+button{border-left:1px solid #3d403b}
+.wall-light button[aria-pressed=true]{background:#ffae65;color:#171918;font-weight:600}
+.wall-light button:focus-visible{outline:3px solid #ffae65;outline-offset:-3px}
+
+.wall-signs{
+  list-style:none;margin:0;padding:0;
+  display:flex;flex-wrap:wrap;gap:clamp(8px,1vw,14px);
+}
+.wall-signs>li{
+  display:flex;flex-direction:column;gap:3px;
+  padding:clamp(11px,1.1vw,15px) clamp(14px,1.4vw,20px);
+  border:1px solid #2b2d2a;border-radius:3px;
+  background:linear-gradient(180deg,#191b19 0%,#141514 100%);
+  transition:border-color .35s ease,background .35s ease;
+}
+.wall-name{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:clamp(.95rem,.88rem + .4vw,1.2rem);
+  font-weight:600;letter-spacing:-.02em;line-height:1.15;
+  color:#cfd2c9;
+  transition:color .35s ease,text-shadow .35s ease,-webkit-text-stroke-color .35s ease;
+}
+.wall-sector{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#8b9086}
+
+/* --- Lit: by the toggle for the whole wall, or by hover for one plate --- */
+
+.name-wall[data-night] .wall-signs>li,
+.wall-signs>li:hover{border-color:#43453f;background:linear-gradient(180deg,#1d1f1c 0%,#161816 100%)}
+
+.name-wall[data-night] [data-material=neon] .wall-name,
+[data-material=neon]:hover .wall-name{
+  color:#fff4e8;
+  text-shadow:0 0 5px #fff,0 0 14px #ff8b33,0 0 30px #ff650bcc;
+}
+.name-wall[data-night] [data-material=metal] .wall-name,
+[data-material=metal]:hover .wall-name{
+  color:#e8eaee;
+  text-shadow:0 0 3px #ffcb94,0 0 13px #ff9d4e99,0 1px 2px #000000a6;
+}
+.name-wall[data-night] [data-material=backlit] .wall-name,
+[data-material=backlit]:hover .wall-name{
+  color:#fff3e0;
+  text-shadow:0 0 12px #ffc98066,0 0 34px #ffb35c3d;
+}
+
+@media(max-width:560px){
+  .wall-head{flex-direction:column;align-items:stretch}
+  /* `flex:1` grows on the main axis, which is vertical once stacked — it was
+     stretching the heading and pushing the toggle ~200px down. */
+  .wall-head .section-heading{flex:0 0 auto}
+  /* 46px so the buttons inside clear 44 after the 1px borders. */
+  .wall-light{width:100%;height:46px}
+  .wall-light button{flex:1;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .wall-signs>li,.wall-name{transition:none}
+}

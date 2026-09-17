@@ -1,0 +1,222 @@
+/* ============================================================
+   Category pages — full-width catalogue
+   The tab strip is gone: it duplicated the header nav and implied
+   in-place switching between what are three separate pages.
+   ============================================================ */
+
+/* The heading row now spans the column; the products get the whole width. */
+.category-introduction{
+  display:block;
+  padding-block:clamp(40px,4.5vw,68px) clamp(44px,5vw,72px);
+}
+.category-introduction .section-heading{
+  margin-bottom:clamp(26px,3vw,44px);
+  align-items:start;row-gap:clamp(12px,1.2vw,18px);
+}
+.category-introduction .section-heading>p{padding-bottom:0;padding-top:.4rem}
+.category-introduction .section-heading h2{
+  max-inline-size:none;font-size:var(--t-h2);line-height:1.1;letter-spacing:-.04em;
+}
+.category-introduction .section-heading h2 em{
+  font-family:var(--editorial-serif);font-style:italic;font-weight:400;color:#a64a18;letter-spacing:-.025em;
+}
+.category-introduction .section-heading>p{font-size:var(--t-body);color:#5d6159;line-height:1.7}
+
+/* --- The catalogue grid ------------------------------------------------- */
+
+/* Three columns rather than four: the catalogues hold 2-5 products, and four
+   tracks stranded a single card alone on a second row. */
+.editorial-index.catalogue-grid{
+  border-top:0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(24px,2.6vw,42px);
+}
+@media(max-width:1000px){.editorial-index.catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.editorial-index.catalogue-grid{grid-template-columns:minmax(0,1fr)}}
+.editorial-index.catalogue-grid>a{
+  display:flex;flex-direction:column;align-items:stretch;
+  grid-template-columns:none;gap:0;padding:0;
+  border-bottom:0;border-radius:4px;
+  min-width:0;
+}
+/* The number rode along the left of the old list row; here it sits on the image. */
+.editorial-index.catalogue-grid .index-number{
+  position:absolute;top:10px;left:12px;z-index:1;
+  font-size:11px;letter-spacing:.08em;color:#f7f7f2;
+  background:#11121199;padding:4px 7px;border-radius:2px;
+}
+.editorial-index.catalogue-grid>a>img{
+  display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;
+  background:var(--mat);border:var(--frame-light);border-radius:4px;
+  transition:transform .5s cubic-bezier(.2,.65,.3,1);
+}
+.editorial-index.catalogue-grid>a{position:relative;overflow:hidden}
+.editorial-index.catalogue-grid>a>div{padding:16px 2px 0;flex:1}
+.editorial-index.catalogue-grid h3{
+  font-size:var(--t-h3);line-height:1.15;letter-spacing:-.03em;margin:0;
+}
+.editorial-index.catalogue-grid p{
+  font-size:var(--t-small);line-height:1.6;color:#62665f;
+  max-inline-size:34ch;margin-top:8px;
+}
+.editorial-index.catalogue-grid>a>svg{
+  align-self:flex-start;margin:14px 0 0 2px;flex:none;
+  transition:transform .2s;
+}
+.editorial-index.catalogue-grid>a:hover>svg{transform:translate(4px,-4px)}
+.editorial-index.catalogue-grid>a:focus-visible{outline:3px solid var(--ring);outline-offset:3px}
+
+/* --- Everything we make ------------------------------------------------- */
+
+.catalogue-all{
+  background:#eceee7;
+  padding-block:clamp(48px,5.5vw,84px);
+}
+.catalogue-all .section-heading{margin-bottom:clamp(26px,3vw,46px)}
+.catalogue-all .section-heading h2{font-size:clamp(1.75rem,1.25rem + 2.2vw,2.9rem);line-height:1.1;letter-spacing:-.04em}
+.catalogue-all .section-heading>p{font-size:var(--t-body);color:#5d6159;line-height:1.7}
+
+.catalogue-columns{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;
+  border-top:1px solid #d3d5ce;
+}
+.catalogue-column{
+  padding:clamp(22px,2.4vw,32px) clamp(18px,2vw,32px) clamp(26px,3vw,38px);
+  border-bottom:1px solid #d3d5ce;
+}
+.catalogue-column+.catalogue-column{border-left:1px solid #d3d5ce}
+
+.catalogue-column.is-current{background:#f7f8f4}
+
+.catalogue-column h3{
+  display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+  font-size:var(--t-h3);line-height:1.15;letter-spacing:-.03em;
+}
+.catalogue-column h3 a{border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.catalogue-column h3 a:hover{color:#a64a18;border-color:#a64a18}
+.catalogue-here{
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:#8f3100;background:#fbe4d5;padding:4px 8px;border-radius:2px;
+}
+.catalogue-column>p{font-size:var(--t-small);color:#62665f;line-height:1.6;margin-top:10px;max-inline-size:30ch}
+.catalogue-column ul{list-style:none;margin:18px 0 0;padding:0}
+.catalogue-column li+li{border-top:1px solid #dcded8}
+.catalogue-column li a{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  min-height:44px;padding:6px 0;
+  font-size:var(--t-body);color:var(--ink);
+  transition:color .2s,padding .2s;
+}
+.catalogue-column li a svg{flex:none;opacity:.45;transition:opacity .2s,transform .2s}
+.catalogue-column li a:hover{color:#a64a18;padding-left:6px}
+.catalogue-column li a:hover svg{opacity:1;transform:translate(3px,-3px)}
+
+@media(max-width:1000px){
+  .catalogue-columns{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .catalogue-column:nth-child(3){border-left:0}
+  .catalogue-column:nth-child(odd){padding-left:0}
+}
+@media(max-width:700px){
+  .catalogue-columns{grid-template-columns:minmax(0,1fr)}
+  .catalogue-column,.catalogue-column:nth-child(odd){padding-inline:0}
+  .catalogue-column+.catalogue-column{border-left:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .editorial-index.catalogue-grid>a>img,
+  .editorial-index.catalogue-grid>a>svg,
+  .catalogue-column li a{transition:none}
+}
+
+/* ============================================================
+   Format explorer — homepage "many formats" section
+   The flat list left the right half of the row empty and gave no
+   picture of what each format actually is. The rows now drive a
+   media panel that fills it.
+   ============================================================ */
+
+.format-explorer{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);
+  gap:clamp(28px,3.5vw,64px);align-items:start;
+}
+
+.format-rows{list-style:none;margin:0;padding:0;border-top:1px solid var(--border)}
+.format-rows>li{border-bottom:1px solid var(--border)}
+.format-rows>li>.format-row{
+  display:grid;grid-template-columns:auto minmax(0,1fr) auto;
+  gap:clamp(16px,2vw,30px);align-items:start;
+  padding:clamp(18px,2vw,26px) 4px;
+  transition:padding-left .25s ease,background .25s ease;
+}
+.format-number{
+  font-size:12px;letter-spacing:.06em;color:#8b9184;padding-top:6px;
+  transition:color .25s ease;
+}
+.format-body{display:flex;flex-direction:column;gap:5px;min-width:0}
+.format-title{
+  font-family:'Space Grotesk',Arial,sans-serif;
+  font-size:clamp(1.35rem,1rem + 1.5vw,2rem);
+  font-weight:500;line-height:1.14;letter-spacing:-.035em;
+  transition:color .25s ease;
+}
+.format-line{font-size:var(--t-small);color:#62665f;line-height:1.6;max-inline-size:40ch}
+.format-items{font-size:12px;color:#8b9184;line-height:1.6;letter-spacing:.01em;margin-top:3px}
+.format-arrow{margin-top:8px;flex:none;opacity:.45;transition:opacity .25s ease,transform .25s ease}
+
+.format-rows>li.is-active>.format-row{background:#eceee6;padding-left:16px}
+.format-rows>li.is-active .format-number{color:#a64a18}
+.format-rows>li.is-active .format-title{color:#a64a18}
+.format-rows>li.is-active .format-arrow{opacity:1;transform:translate(4px,-4px)}
+.format-rows>li>.format-row:focus-visible{outline:3px solid var(--ring);outline-offset:-3px}
+
+/* --- The media panel ----------------------------------------------------- */
+
+.format-panel{position:sticky;top:108px}
+.format-stage{
+  position:relative;aspect-ratio:3/2;overflow:hidden;
+  border-radius:4px;background:var(--mat);border:var(--frame-light);
+}
+.format-stage>img,.format-stage>video{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity .45s ease,transform .8s cubic-bezier(.2,.6,.3,1);
+  transform:scale(1.03);
+}
+.format-stage>img.is-shown{opacity:1;transform:scale(1)}
+.format-stage>video.is-shown{opacity:1;transform:scale(1);z-index:1}
+
+.format-panel-foot{
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  margin-top:14px;font-size:var(--t-small);color:#62665f;
+}
+.format-panel-foot button{
+  display:inline-flex;align-items:center;gap:7px;
+  min-height:40px;padding:0 15px;border-radius:999px;
+  border:1px solid var(--border);background:#fff;color:var(--ink);
+  font-size:12px;font-weight:600;cursor:pointer;
+  transition:background .2s,border-color .2s;
+}
+.format-panel-foot button:hover{background:#f1f2ed;border-color:#9aa093}
+.format-panel-foot button:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+
+/* Inline pictures only exist where the side panel does not. */
+.format-inline-media{display:none}
+
+@media(max-width:900px){
+  .format-explorer{grid-template-columns:minmax(0,1fr)}
+  .format-panel{display:none}
+  .format-rows>li>.format-row{padding-bottom:12px}
+  .format-rows>li.is-active>.format-row{background:transparent;padding-left:4px}
+  .format-rows>li.is-active .format-title,
+  .format-rows>li.is-active .format-number{color:inherit}
+  .format-inline-media{display:block;padding:0 0 clamp(18px,3vw,26px)}
+  .format-inline-media img{
+    width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;
+    border-radius:4px;background:var(--mat);border:var(--frame-light);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .format-rows>li>.format-row,.format-number,.format-title,.format-arrow,
+  .format-stage>img,.format-stage>video,.format-panel-foot button{transition:none}
+  .format-stage>img,.format-stage>video{transform:none}
+}
