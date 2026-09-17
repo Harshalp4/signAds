@@ -1,17 +1,31 @@
 import Link from 'next/link';
-import {ArrowUpRight} from 'lucide-react';
+import {ArrowUpRight, Plus, MoveUpRight, Paperclip} from 'lucide-react';
 import {Content,imageUrl,hrefFor} from '@/lib/content';
-const questions=[
- ['Can I enquire about just one sign?','Yes. Tell us about the sign, its dimensions and its intended location. The scope and available options can be discussed for your project.'],
- ['What should I share for a print quote?','The product, quantity, finished dimensions, artwork status and needed-by date are a useful start. Add any paper or finishing preferences to your brief.'],
- ['Can I discuss several locations or formats?','Yes. The enterprise form captures sites, units, locations, dates and artwork status. Coverage and execution requirements are reviewed for each enquiry.'],
- ['Can I see examples before enquiring?','The Work gallery contains photographs from the company profiles, organised by service and application. Ask about specifications relevant to your project when you enquire.']
-];
 export function HomeSections({projects}:{projects:Content[]}){
  const chosen=['reception-lettering','jewellery-storefront','tempo-campaign'].map(id=>projects.find(p=>p.id===id)).filter((p):p is Content=>!!p);
  return <>
  {chosen.length>0&&<section className="home-proof wrap"><div className="home-proof-heading"><div><p className="eyebrow">From the company profiles</p><h2>Made. Installed. Seen.</h2></div><Link href="/work" className="text-link">Explore all the work <ArrowUpRight size={18}/></Link></div><div className="home-proof-grid">{chosen.map(p=><Link key={p.id} href={hrefFor(p)}><div className="home-proof-image"><img src={imageUrl(p.image)} alt={p.description} width="900" height="600" loading="lazy"/></div><p>{p.category}<span>{p.industry}</span></p><h3>{p.title}<ArrowUpRight size={17}/></h3></Link>)}</div></section>}
- <section className="home-project-paths"><div className="wrap"><div><p className="eyebrow">Planning more than one piece?</p><h2>Start with <br/><em>the whole picture.</em></h2></div><div className="home-path-links"><Link href="/solutions"><span><strong>A store, an office or a launch</strong><small>Explore the touchpoints around your business.</small></span><ArrowUpRight size={22}/></Link><Link href="/enterprise"><span><strong>Several sites or a larger campaign</strong><small>Bring locations, quantities and timings into one brief.</small></span><ArrowUpRight size={22}/></Link></div></div></section>
- <section className="home-faq wrap"><div><p className="eyebrow">Before you begin</p><h2>A few useful answers.</h2><Link href="/contact" className="text-link">Talk to SignAds <ArrowUpRight size={18}/></Link></div><div className="faq-list">{questions.map(([q,a])=><details key={q}><summary>{q}<span aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></section>
+ <section className="home-start wrap" id="start-a-project" aria-labelledby="home-start-title">
+  <div className="home-brief">
+   <div className="home-brief-top"><p className="eyebrow">Your next project</p><Paperclip size={22} aria-hidden="true"/></div>
+   <h2 id="home-start-title">A rough idea is <em>a good start.</em></h2>
+   <p className="home-brief-intro">Tell us what you want to make. We’ll discuss the details with you.</p>
+   <div className="home-brief-notes" aria-label="Helpful details for your enquiry">
+    <span><small>01 / What</small>Product or space</span>
+    <span><small>02 / Scale</small>Size & quantity</span>
+    <span><small>03 / When</small>Your target date</span>
+   </div>
+   <Link href="/contact" className="home-brief-cta">Start your brief <MoveUpRight size={20} aria-hidden="true"/></Link>
+  </div>
+  <div className="home-start-help">
+   <p className="eyebrow">Good to know</p>
+   <h3>A little clarity first.</h3>
+   <div className="home-start-questions">
+    <details open name="home-start-answers"><summary>What if I’m not sure what I need?<Plus size={18} aria-hidden="true"/></summary><div><p>Start with where it will be used and what you want it to do. Add a reference or a photo if you have one; the format, material and finish can be discussed.</p><Link href="/solutions">Explore ideas for your business <ArrowUpRight size={16} aria-hidden="true"/></Link></div></details>
+    <details name="home-start-answers"><summary>Can I enquire about a single item?<Plus size={18} aria-hidden="true"/></summary><div><p>Yes. Send the product or sign you have in mind, its size and where it will be used. Quantities and available options are reviewed for your project.</p></div></details>
+    <details name="home-start-answers"><summary>Planning several locations or formats?<Plus size={18} aria-hidden="true"/></summary><div><p>Bring the locations, products, quantities and target dates into one brief. The team will review the scope and execution requirements with you.</p><Link href="/enterprise">Plan a larger project <ArrowUpRight size={16} aria-hidden="true"/></Link></div></details>
+   </div>
+  </div>
+ </section>
  </>
 }
