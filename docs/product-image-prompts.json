@@ -1,0 +1,22 @@
+[
+  {
+    "asset": "pamphlets-product",
+    "prompt": "Use case: product-mockup. Asset type: illustrative printed-product catalog photograph for SignAds website, not a real client portfolio.\nCreate one natural professional commercial photograph, 1536x1024 pixels, 3:2 landscape. On a pale neutral tabletop show a three-panel folded takeaway leaflet: one copy opened so all three panels and the two vertical fold creases are clearly visible, plus one folded standing copy. Cream paper with dark teal editorial graphics and simple food/cafe-themed abstract shapes. The only printed headline is \"FRESH IDEAS\". No fine fake text. Realistic paper folds, edges and shadows, soft natural studio light. Full physical products entirely in frame with clear space around their edges. The product must be unmistakably folded pamphlets, not business cards or a book. No UI, no collage, no unrelated logos, no fake company names, no watermarks.",
+    "path": "/Users/harshalpatil/.codex/generated_images/01a0aeed-b5a1-7f51-b859-d7555489ed5e/exec-7e52ab56-a6c6-4dfe-b33c-37f4d562795a.png"
+  },
+  {
+    "asset": "brochures-product",
+    "prompt": "Use case: product-mockup. Asset type: illustrative printed-product catalog photograph for SignAds website, not a real client portfolio.\nCreate one natural professional commercial photograph, 1536x1024 pixels, 3:2 landscape. On a bright white studio background show a substantial saddle-stitched company brochure opened at a generous two-page spread, with several visible bound pages, genuine printed page edges and visible center binding; another closed copy sits behind. The layout contains tasteful architectural photography and a muted forest green and cream editorial grid. The only headline is \"SPACES & STORIES\". No fine fake text. Authentic paper texture and soft studio shadows. All physical products entirely in frame with clear margins. The brochure must be unmistakably a multi-page saddle-stitched publication, not single sheets or tri-folds. No UI, no collage, no unrelated logos, no fake company names, no watermarks.",
+    "path": "/Users/harshalpatil/.codex/generated_images/01a0aeed-b5a1-7f51-b859-d7555489ed5e/exec-a126b90b-6e9f-47f4-9270-8422a4a0e5ad.png"
+  },
+  {
+    "asset": "flex-banner-product",
+    "prompt": "Use case: product-mockup. Asset type: illustrative printed-product catalog photograph for SignAds website, not a real client portfolio.\nCreate one natural professional commercial photograph, 1536x1024 pixels, 3:2 landscape. A horizontal flexible vinyl advertising banner with reinforced hems and clearly visible silver eyelets at its corners is stretched on a simple wall at a local storefront in daylight. The banner has clean coral/orange and navy artwork with the exact headline \"GRAND OPENING\". Show realistic slightly flexible vinyl texture and mild tension ripples. The full banner, all edges and its fixings are visible within the frame. No roll-up stand, no billboard, no identifiable client, no other advertising, no UI, no collage, no unrelated logos, no fake company names, no watermarks.",
+    "path": "/Users/harshalpatil/.codex/generated_images/01a0aeed-b5a1-7f51-b859-d7555489ed5e/exec-d2d376bb-3f75-472d-825b-2e25b0f9a15b.png"
+  },
+  {
+    "asset": "hoarding-product",
+    "prompt": "Use case: product-mockup. Asset type: illustrative printed-product catalog photograph for SignAds website, not a real client portfolio.\nCreate one natural professional commercial photograph, 1536x1024 pixels, 3:2 landscape. Show a single large roadside billboard/hoarding mounted on real steel posts next to an urban Indian road under clear daylight. The whole steel structure and advertising display are visible within the frame. Its uncluttered graphic campaign face uses navy, white and amber, with the exact words \"THINK BIG\". Convey realistic large outdoor scale through the road and ordinary urban surroundings. No other advertising or identifiable brands. It must obviously be a large roadside hoarding, completely different from a roll-up banner or an indoor sign. No UI, no collage, no unrelated logos, no fake company names, no watermarks.",
+    "path": "/Users/harshalpatil/.codex/generated_images/01a0aeed-b5a1-7f51-b859-d7555489ed5e/exec-50255a9b-497b-4973-98f1-1610d1d9edae.png"
+  }
+]
