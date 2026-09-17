@@ -1,0 +1,20 @@
+.category-print .category-introduction{display:block}
+.category-print .category-introduction h2{max-width:none}
+.category-print .category-introduction>div:first-child{margin-bottom:28px}
+.print-collection{width:100%;margin-top:32px}
+.print-scene-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 32px}
+.print-scene{display:block;min-width:0;color:inherit}
+.print-scene-photo{position:relative;isolation:isolate;overflow:hidden;margin:0;aspect-ratio:3/2;border-radius:4px;background:#e5e4dd}
+.print-scene-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1);transform:scale(1.001)}
+.print-scene:hover .print-scene-photo img,.print-scene:focus-visible .print-scene-photo img{transform:scale(1.035)}
+.print-scene-photo figcaption{position:absolute;inset:auto 0 0;display:flex;align-items:center;gap:16px;padding:40px 22px 18px;color:#fff;background:linear-gradient(transparent,#000b);font-size:.875rem;line-height:1.4}
+.print-scene-photo figcaption>span:first-child{font-variant-numeric:tabular-nums;opacity:.75}
+.print-scene-copy{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:20px 0 0}
+.print-scene-copy h3{font-size:clamp(27px,2.8vw,40px);line-height:1.13;letter-spacing:-.04em;margin:0}
+.print-scene-copy p{font-size:1rem;line-height:1.6;color:#5f635b;margin-top:10px;max-width:37ch}
+.print-scene-copy>svg{flex:none;margin-top:6px;transition:transform .2s}
+.print-scene:hover .print-scene-copy>svg{transform:translate(3px,-3px)}
+.print-scene:focus-visible{outline:3px solid #a13c00;outline-offset:6px;border-radius:4px}
+.print-collection .print-scene-note{font-size:.875rem;color:#686c63;line-height:1.6;margin:26px 0 0;max-width:none}
+@media(max-width:640px){.print-scene-grid{grid-template-columns:1fr;gap:34px}.print-scene-photo figcaption{padding:32px 16px 14px;font-size:.8125rem;gap:12px}.print-scene-copy{padding-top:16px;gap:16px}.print-scene-copy h3{font-size:29px}.print-scene-copy p{font-size:1rem}.print-collection{margin-top:24px}}
+@media(prefers-reduced-motion:reduce){.print-scene-photo img,.print-scene-copy>svg{transition:none}.print-scene:hover .print-scene-photo img,.print-scene:focus-visible .print-scene-photo img{transform:none}}

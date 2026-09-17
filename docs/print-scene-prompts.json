@@ -1,0 +1,42 @@
+[
+  {
+    "id": "visiting-cards",
+    "path": "/Users/harshalpatil/.codex/generated_images/signads-print-lifestyle-20260917/visiting-cards.png",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Hands exchanging a textured ivory visiting card over a wooden office desk.",
+    "prompt": "Use case: photorealistic-natural. Asset type: printing service website product category photograph. Create ONE landscape 3:2 photograph, 1536x1024 preferred. Professional editorial product photography that feels tangible, naturally photographed with subtle real-world imperfections, never polished CGI or synthetic mockup. The printed product prominently fills the image and is sharply legible in structure, with visible paper/material edges and texture. Excellent physically correct hand anatomy wherever hands appear. No known company names, real company logos, real contact details, watermarks, collages, floating objects, irrelevant robots, or fake portfolio/client endorsement claims.\nScene and subject: Closeup of cropped adult hands exchanging one thick uncoated ivory visiting card. The card is the hero, held naturally between fingers, its printed face and thick edge in sharp focus. Another small neat stack of matching cards sits slightly behind on a warm real office desk. Restrained burnt-orange and charcoal typography, a tiny generic fictional designer name and tiny indistinct body text, absolutely no real contact details. Warm natural window light, quiet modern office hints in soft background, believable gentle shadows. Real textured stock, not plastic. Composition close and intimate, whole hero card visible, no excessively blurred main product.",
+    "method": "built-in imagegen",
+    "source_path": "/Users/harshalpatil/.codex/generated_images/01a0af44-3458-7a70-947b-f7aac67de034/exec-778818aa-e86d-403d-94b6-9fcbdff9671a.png"
+  },
+  {
+    "id": "flyers-pamphlets",
+    "path": "/Users/harshalpatil/.codex/generated_images/signads-print-lifestyle-20260917/flyers-pamphlets.png",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Orange event flyer and open three-panel pamphlet on a café counter.",
+    "prompt": "Use case: photorealistic-natural. Asset type: printing service website product category photograph. Create ONE landscape 3:2 photograph, 1536x1024 preferred. Professional editorial product photography that feels tangible, naturally photographed with subtle real-world imperfections, never polished CGI or synthetic mockup. The printed product prominently fills the image and is sharply legible in structure, with visible paper/material edges and texture. Excellent physically correct hand anatomy wherever hands appear. No known company names, real company logos, real contact details, watermarks, collages, floating objects, irrelevant robots, or fake portfolio/client endorsement claims.\nScene and subject: A beautifully designed burnt-orange and cream single-sheet event leaflet and an open three-panel pamphlet resting on a textured real café counter, slightly overlapping. The pamphlet's folds and three connected paper panels must be clearly visible and physically coherent. One cropped adult hand casually picks up the single-sheet flyer at its edge, holding it near the counter. Distinctive contemporary typography, minimal exact headline text 'OPEN STUDIO'. Soft café context, natural daylight and convincing contact shadows. Visible paper grain, slight curl at flyer corner, sharp printed products. All objects rest on the counter or are visibly held; no floating layout.",
+    "method": "built-in imagegen",
+    "source_path": "/Users/harshalpatil/.codex/generated_images/01a0af44-3458-7a70-947b-f7aac67de034/exec-3c6dc5f2-3afc-48d2-8257-ee9ad939b704.png"
+  },
+  {
+    "id": "brochures",
+    "path": "/Users/harshalpatil/.codex/generated_images/signads-print-lifestyle-20260917/brochures.png",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Hands turning a page of a green-accented architectural brochure.",
+    "prompt": "Use case: photorealistic-natural. Asset type: printing service website product category photograph. Create ONE landscape 3:2 photograph, 1536x1024 preferred. Professional editorial product photography that feels tangible, naturally photographed with subtle real-world imperfections, never polished CGI or synthetic mockup. The printed product prominently fills the image and is sharply legible in structure, with visible paper/material edges and texture. Excellent physically correct hand anatomy wherever hands appear. No known company names, real company logos, real contact details, watermarks, collages, floating objects, irrelevant robots, or fake portfolio/client endorsement claims.\nScene and subject: Closeup of one pair of adult hands turning a slightly arched page of a bound architectural brochure resting on a dark timber desk. A matching closed brochure cover sits next to it. Creamy textured paper, restrained forest-green graphic accents and actual printed architectural interior photographs on pages. Show a physically coherent bound spine and sharp layered page edges. Hands gently holding and turning one page, excellent anatomy. Natural late-afternoon window light with soft directional shadows. This is an architecture business brochure, not a fashion magazine. Tactile authentic photograph, main spread and binding sharp, nothing floating.",
+    "method": "built-in imagegen",
+    "source_path": "/Users/harshalpatil/.codex/generated_images/01a0af44-3458-7a70-947b-f7aac67de034/exec-82612d95-118c-4a69-aefd-c0104d68f347.png"
+  },
+  {
+    "id": "banners",
+    "path": "/Users/harshalpatil/.codex/generated_images/signads-print-lifestyle-20260917/banners.png",
+    "width": 1536,
+    "height": 1024,
+    "alt": "Orange vinyl banner tied to a steel railing outside a neighborhood café.",
+    "prompt": "Use case: photorealistic-natural. Asset type: printing service website product category photograph. Create ONE landscape 3:2 photograph, 1536x1024 preferred. Professional editorial product photography that feels tangible, naturally photographed with subtle real-world imperfections, never polished CGI or synthetic mockup. The printed product prominently fills the image and is sharply legible in structure, with visible paper/material edges and texture. Excellent physically correct hand anatomy wherever hands appear. No known company names, real company logos, real contact details, watermarks, collages, floating objects, irrelevant robots, or fake portfolio/client endorsement claims.\nScene and subject: Medium-wide genuine-feeling local shop doorway in a contemporary Indian streetscape. A physical flexible matte vinyl printed banner is secured to a simple steel railing with visible eyelets and ties. Whole banner fully framed and prominent, slight perspective depth, small wind-tension folds and subtle material waviness. Warm burnt-orange and charcoal graphic design with exact minimal headline 'HELLO, NEIGHBOUR'. No other readable shop brands. Greenery and natural pavement details, warm natural morning light. Clearly show flexible printed vinyl, NOT a rigid sign, not a lightbox. Believable lived-in streetside setting, crisp banner with visible edges, restrained contemporary print design.",
+    "method": "built-in imagegen",
+    "source_path": "/Users/harshalpatil/.codex/generated_images/01a0af44-3458-7a70-947b-f7aac67de034/exec-aec35bdf-3189-436f-8d2b-b54bbaa05599.png"
+  }
+]
