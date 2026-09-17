@@ -19,3 +19,16 @@ User direction: remove project imagery from the hero and make the opening a crea
 - Mobile repositions art between copy and actions, preserves touch targets and direct service access.
 - The next section uses editorial hierarchy and asymmetrically placed material studies. Real portfolio photographs remain in the work section.
 - Supporting skill search: Immersive/Interactive Experience pattern; retained established orange/charcoal identity. Reduced Motion and Excessive Motion UX guidance applied.
+
+
+## Revora-informed editorial revision — 17 September 2026
+
+Reference inspected directly: `/Users/harshalpatil/Marketing/revora-website`, including homepage, typography, film player and business-use-case structures. User requested original logo, more appropriate imagery and videos, less repetition, smaller content surfaces and varied inner-page layouts. This replaces the sculptural-S homepage concept.
+
+- Real SignAds English wordmark from company profile image `profile-1-p01-02`; preserve the original grey/orange artwork. CSS viewport exposes the existing English logo without redrawing it.
+- Headline contrast: Space Grotesk with DM Serif Display italic emphasis. Charcoal, ivory and orange stay grounded in SignAds.
+- Homepage: material film beside a concise brand statement, slim service navigation, editorial introduction. No portfolio photographs in the hero.
+- Print: panoramic concept film and compact thumbnail catalogue. Signage: dark material-led opening and a text-first service index. Outdoor: wide display image and a separate clearly labelled profile-photo film.
+- Product detail compositions vary by print, signage and outdoor. Distinct images for all eleven products.
+- Solutions use numbered text rows and a planning sidebar; remove repeated product-image grids. Guides use a journal index and long-form reading layout with in-page links; no decorative stock hero. About has its own photographic diptych.
+- Films respect reduced motion and offscreen/hidden-tab suspension. Pause remains sticky. No audio, fake project outcomes or misleading generated work.

@@ -1,0 +1,26 @@
+{
+  "mode": "built-in image_gen",
+  "assets": [
+    {
+      "asset": "visiting-cards",
+      "prompt": "Use case: product-mockup. Asset type: illustrative product photograph for a premium printing and signage website. Create one actual landscape 3:2 editorial product photo. Macro oblique stack of thick white business cards and one vivid burnt orange card laid on charcoal textured tabletop. Precise letterpress minimal typographic layout with exact readable tiny text \"YOUR NAME\" only, no other words. Close tactile paper detail with believable thick uncoated edges. Cards occupy center-right with generous left negative space. Cohesive premium tactile photography, burnt orange, charcoal and white palette, natural hard daylight and crisp believable shadows. This is an illustrative product presentation, not a real completed client work. No unrelated logos, watermarks, UI, collage, or website screenshot.",
+      "source_generation_path": "/Users/harshalpatil/.codex/generated_images/01a0aedd-37c7-70f2-9e5b-0d659fd2da61/exec-f332aa9a-3077-47cd-9070-a2e522f1259b.png",
+      "workspace_path": "research/source-images/visiting-cards.png",
+      "web_path": "public/images/visiting-cards.webp"
+    },
+    {
+      "asset": "flyers",
+      "prompt": "Use case: product-mockup. Asset type: illustrative product photograph for a premium printing and signage website. Create one actual landscape 3:2 editorial product photo. Overhead photograph of three different A5 flat promotional flyers fanned on pale cool grey concrete. Burnt orange and black geometric campaign design. One sheet has the exact headline \"OPEN HOUSE\". Other sheets have intentional abstract graphic layouts, no other text and no tiny fake text. Strong diagonal natural sun shadows. Unmistakably three single sheet flyers rather than folded brochures. Premium tactile photography with believable paper texture, burnt orange/charcoal/white cohesive palette. This is an illustrative product presentation, not a real completed client work. No unrelated logos, watermarks, UI, collage, or website screenshot.",
+      "source_generation_path": "/Users/harshalpatil/.codex/generated_images/01a0aedd-37c7-70f2-9e5b-0d659fd2da61/exec-1fcea231-d320-4300-afab-3a5c302eff05.png",
+      "workspace_path": "research/source-images/flyers.png",
+      "web_path": "public/images/flyers.webp"
+    },
+    {
+      "asset": "banner",
+      "prompt": "Use case: product-mockup. Asset type: illustrative product photograph for a premium printing and signage website. Create one actual landscape 3:2 beautiful photoreal editorial photograph. Freestanding tall roll-up printed banner at an unbranded contemporary event entrance with no people. The banner has burnt orange and ivory graphic artwork with exact bold text \"MAKE AN ENTRANCE\" and no other text. Brushed aluminium base, architecture in muted charcoal stone. Entire full banner visible from top rail to base, placed center-right with generous negative space to its left. Premium tactile photographic style with natural hard daylight and believable crisp shadows; cohesive burnt orange/charcoal/white palette. This is an illustrative product presentation, not a real completed client work. No specific company or location, unrelated logos, watermarks, UI, collage, or website screenshot.",
+      "source_generation_path": "/Users/harshalpatil/.codex/generated_images/01a0aedd-37c7-70f2-9e5b-0d659fd2da61/exec-4a5c19e9-2a53-42cc-9ffe-a9c2210a89e3.png",
+      "workspace_path": "research/source-images/banner-display.png",
+      "web_path": "public/images/banner-display.webp"
+    }
+  ]
+}

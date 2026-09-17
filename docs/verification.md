@@ -23,3 +23,12 @@ Automated checks are not a full accessibility or legal compliance audit. Public 
 - Original generated artwork visually inspected before integration; WebP asset is 71,846 bytes.
 - Source includes explicit motion pause, reduced-motion preference handling, offscreen/hidden-tab suspension, and mouse-only parallax.
 - Existing backend and CMS workflows preserved. Browser interaction testing was not run for this visual revision.
+
+
+## Revora-informed editorial revision
+
+- Original logo and all three generated images inspected. Two exported film frames inspected; all films encoded to silent H.264 at 1280x720, approximately 12.3 seconds.
+- TypeScript passed. Eighteen representative routes returned HTTP 200 with the original logo present.
+- Existing enquiries, CMS permissions, storage and access policy remain unchanged.
+- Browser interaction/visual testing was not run in this revision.
+- Production build passed for the complete editorial revision. The favicon now displays the original profile monogram.
