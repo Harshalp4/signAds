@@ -1,0 +1,44 @@
+.lumi-root{--lumi-orange:#ff650b;--lumi-ink:#171817;--lumi-paper:#fffefa;position:relative;z-index:70}
+.lumi-panel[hidden],.lumi-panel [hidden]{display:none!important}.lumi-chat-body{display:flex;flex-direction:column;flex:1;min-height:0}
+.lumi-art{display:block;flex:none;width:136px;aspect-ratio:362/284;background-image:url('/images/lumi/emotions.png');background-size:600% auto;background-position:calc(var(--lumi-pose,0)*20%) 48%;background-repeat:no-repeat;transform-origin:50% 85%;pointer-events:none;filter:drop-shadow(0 5px 4px #0002)}
+.lumi-launcher{position:fixed;right:max(20px,env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:70;display:flex;flex-direction:column;align-items:center;border:0;background:transparent;padding:0;width:116px;color:#fff;isolation:isolate}
+.lumi-launcher .lumi-art{width:124px;margin-bottom:-4px}
+.lumi-launcher-label{display:flex;align-items:center;justify-content:center;gap:14px;min-height:40px;padding:8px 16px;border-radius:24px;background:#171817;box-shadow:0 4px 20px #0002;font-size:.875rem;font-weight:600;white-space:nowrap}
+.lumi-launcher-label>span{color:#ff8b43}
+.lumi-launcher-open{width:48px;height:48px;justify-content:center;border-radius:50%;background:#171817;box-shadow:0 4px 18px #0003}
+.lumi-panel[data-slot=dialog-content]{position:fixed;top:auto;left:auto;right:max(22px,env(safe-area-inset-right));bottom:calc(78px + env(safe-area-inset-bottom));width:min(420px,calc(100vw - 32px));max-width:none;height:min(680px,calc(100dvh - 108px - env(safe-area-inset-bottom)));max-height:calc(100dvh - 108px - env(safe-area-inset-bottom));transform:none;translate:none;z-index:80;display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;border:1px solid #d9d9d2;border-radius:22px;background:#fffefa;color:#171817;box-shadow:0 18px 70px #0003;font-family:'Archivo',Arial,sans-serif;font-size:1rem;line-height:1.5;animation:lumi-panel-enter .28s cubic-bezier(.16,1,.3,1)}
+.lumi-header{display:flex;align-items:center;gap:8px;padding:13px 12px 13px 6px;background:#191a19;color:#fff;flex:none}
+.lumi-header>.lumi-art{width:80px;margin-right:-9px}
+.lumi-header>div{flex:1;min-width:0}
+.lumi-title[data-slot=dialog-title]{font-family:'Space Grotesk',sans-serif;font-size:1.375rem;line-height:1.2;color:#fff;letter-spacing:-.025em;margin:0 0 4px}
+.lumi-description[data-slot=dialog-description]{color:#dadbd5;font-size:.875rem;line-height:1.4;margin:0}
+.lumi-icon-button{display:grid;place-items:center;width:40px;height:44px;flex:none;padding:0;border:0;border-radius:10px;color:#fff;background:transparent}
+.lumi-icon-button:hover{background:#ffffff15}.lumi-icon-button:disabled{opacity:.4;cursor:default}
+.lumi-conversation{padding:20px 18px 10px;flex:1;min-height:90px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.lumi-message{max-width:94%;width:fit-content;margin:0 0 18px;font-size:1rem;overflow-wrap:anywhere}
+.lumi-speaker{display:block;font-weight:600;color:#666962;font-size:.75rem;margin-bottom:5px}
+.lumi-message p{white-space:pre-line;line-height:1.55}
+.lumi-message-visitor{margin-left:auto;background:#f1f0e9;padding:12px 15px;border-radius:16px 16px 3px 16px}
+.lumi-message-link{display:flex;align-items:center;gap:8px;font-size:.875rem;font-weight:600;color:#a13c00;text-decoration:underline;text-underline-offset:4px;margin-top:10px;min-height:36px}
+.lumi-primary{display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px;margin-top:12px;border:0;border-radius:8px;background:#ff650b;color:#171817;font-size:.875rem;font-weight:600}
+.lumi-actions{flex:none;border-top:1px solid #eeeee7;padding:12px 16px 0}
+.lumi-suggestions{display:flex;flex-wrap:wrap;gap:8px}.lumi-suggestions button{background:#fffefa;border:1px solid #d4d6cc;border-radius:18px;padding:9px 12px;min-height:40px;color:#31362c;font-size:.875rem;line-height:1.3;transition:background .15s,border-color .15s}
+.lumi-suggestions button:hover{border-color:#ff650b;background:#fff3e9}
+.lumi-quote-link{display:flex;align-items:center;justify-content:space-between;width:100%;border:0;background:transparent;color:#994000;font-weight:600;font-size:.875rem;padding:9px 2px;min-height:44px}
+.lumi-composer{display:flex;gap:8px;padding:5px 16px 8px;flex:none}.lumi-composer input{min-width:0;width:100%;min-height:48px;border:1px solid #d7d9d0;border-radius:10px;padding:11px 12px;font-size:1rem;background:#fff;color:#171817}.lumi-composer input::placeholder{color:#72746e}
+.lumi-composer>button{width:48px;height:48px;display:grid;place-items:center;flex:none;border:0;border-radius:10px;background:#ff650b;color:#171817}
+.lumi-footnote{font-size:.75rem;line-height:1.4;color:#6c7066;text-align:center;padding:0 15px 12px;flex:none}
+.lumi-error{font-size:.875rem;background:#fff3ed;color:#8b2d0d;margin:8px 16px;padding:10px;border-radius:8px;max-height:130px;overflow:auto}.lumi-error button,.lumi-error a{display:inline-flex;align-items:center;min-height:40px;text-decoration:underline;margin-right:14px;border:0;background:transparent;font-weight:600;color:inherit;padding:0}
+.lumi-thinking{display:flex;gap:5px;padding:12px 0 18px}.lumi-thinking>span:not(.sr-only){width:6px;height:6px;border-radius:50%;background:#af4507;animation:lumi-dot 1s ease-in-out infinite}.lumi-thinking>span:nth-child(2){animation-delay:.15s}.lumi-thinking>span:nth-child(3){animation-delay:.3s}
+.lumi-quote-scroll{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:12px 20px 24px;scrollbar-width:thin}.lumi-back{display:flex;gap:8px;align-items:center;min-height:44px;border:0;background:none;padding:0;color:#664323;font-size:.875rem;margin-bottom:10px}
+.lumi-quote-scroll .quote-form{padding:0;border:0;box-shadow:none;background:transparent;min-width:0}.lumi-quote-scroll .quote-form h2,.lumi-quote-scroll .success-panel h2{font-size:2rem;line-height:1.1}.lumi-quote-scroll .form-grid{grid-template-columns:minmax(0,1fr);gap:16px}.lumi-quote-scroll .form-grid>*{grid-column:1}.lumi-quote-scroll .form-intro{font-size:.875rem}.lumi-quote-scroll .form-grid input,.lumi-quote-scroll .form-grid textarea{min-width:0;width:100%;font-size:1rem}.lumi-quote-scroll .success-panel{padding:12px 0;background:transparent}.lumi-quote-scroll .success-panel .button{gap:10px;padding:12px;font-size:.875rem}.lumi-quote-scroll .upload-field{overflow-wrap:anywhere}.lumi-quote-scroll .form-submit{width:100%;gap:12px}
+[data-motion=on] .lumi-curious{animation:lumi-tilt .4s ease-out both}[data-motion=on] .lumi-welcoming{animation:lumi-greet .7s cubic-bezier(.2,.8,.2,1) both}[data-motion=on] .lumi-delighted{animation:lumi-hop .7s ease-out both}
+.lumi-panel[data-motion=off], [data-motion=off] .lumi-art,[data-motion=off] .lumi-thinking>span{animation:none!important;transition:none!important}
+@keyframes lumi-greet{0%{transform:scale(.94,1.04)}25%{transform:scale(1.08,.9) rotate(-5deg)}55%{transform:translateY(-7px) rotate(5deg)}80%{transform:rotate(-2deg)}100%{transform:none}}
+@keyframes lumi-hop{0%,100%{transform:translateY(0)}35%{transform:translateY(-9px) rotate(-4deg)}65%{transform:translateY(0) scale(1.05,.95)}}
+@keyframes lumi-tilt{0%{transform:none}100%{transform:rotate(-4deg) translateY(-2px)}}
+@keyframes lumi-dot{0%,80%,100%{opacity:.35;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+@keyframes lumi-panel-enter{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:600px){.lumi-launcher{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));width:96px}.lumi-launcher .lumi-art{width:106px}.lumi-launcher-label{font-size:.8125rem;padding:6px 12px;min-height:36px}.lumi-launcher-open{width:44px;height:44px}.lumi-panel[data-slot=dialog-content]{right:10px;bottom:calc(66px + env(safe-area-inset-bottom));width:calc(100vw - 20px);height:min(680px,calc(100dvh - 86px - env(safe-area-inset-bottom)));max-height:calc(100dvh - 86px - env(safe-area-inset-bottom));border-radius:18px}.lumi-header{padding:8px 8px 8px 0}.lumi-header>.lumi-art{width:72px}.lumi-header .lumi-icon-button{width:36px}.lumi-description[data-slot=dialog-description]{font-size:.8125rem}.lumi-conversation{padding:16px}.lumi-actions{padding:8px 12px 0}.lumi-composer{padding-inline:12px}.lumi-footnote{font-size:.75rem}.lumi-quote-scroll{padding-inline:16px}}
+@media(max-height:540px){.lumi-header>.lumi-art{width:56px}.lumi-header{padding-block:6px}.lumi-suggestions{display:none}.lumi-footnote{display:none}.lumi-actions{padding-top:0}.lumi-conversation{min-height:48px}}
+@media(prefers-reduced-motion:reduce){.lumi-panel[data-slot=dialog-content],.lumi-art,.lumi-thinking>span{animation:none!important;transition:none!important}}
