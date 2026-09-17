@@ -5,6 +5,8 @@ import { readExecutionProfile } from "./execution-profile.mjs";
 const [command, ...args] = process.argv.slice(2);
 if (!["dev", "build"].includes(command)) throw new Error("Expected dev or build.");
 const managedLinux = readExecutionProfile() === "managed-linux";
+// The Sites runtime supplies real Cloudflare bindings; never use the Next-only stub.
+process.env.SIGNADS_CLOUDFLARE_RUNTIME = "1";
 
 if (managedLinux && command === "build") {
   const result = spawnSync("bash", [

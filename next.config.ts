@@ -7,7 +7,9 @@ import path from "node:path";
 //
 // Turbopack wants a project-root-relative specifier here; webpack wants an
 // absolute path.
-const nextConfig: NextConfig = {
+const cloudflareRuntime = process.env.SIGNADS_CLOUDFLARE_RUNTIME === "1";
+
+const nextConfig: NextConfig = cloudflareRuntime ? {} : {
   turbopack: {
     resolveAlias: { "cloudflare:workers": "./lib/workers-stub.ts" },
   },
