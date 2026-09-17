@@ -1,0 +1,9 @@
+# SignAds visual system
+
+Visual thesis: an architectural portfolio for physical brand visibility. Oversized sans serif headlines, real project photography and an orange framing device evoke the scale and precision of signage.
+
+UI/UX Pro Max searches: `signage fabrication portfolio editorial` (design system) and `industrial portfolio typography` (typography). Adopt its spacious layout, asymmetric portfolio and keyboard/reduced-motion recommendations. Override its suggested serif type and red/navy palette with the brief's orange/charcoal identity and the better-fitting Minimalist Portfolio typography result: Archivo / Space Grotesk.
+
+Tokens: charcoal #171918; orange #ff650b; paper #f5f5f0; white #ffffff; muted #666861; line #dcded8. Orange surfaces use charcoal text; small orange text on white uses #b83e00. Display type Space Grotesk, body Archivo with system sans fallback. Corners 2–6 px; spacing 8/16/24/32/48/72/104. Body 16–18 px; metadata 12–14 px; fluid H1 48–112 px. Visible 3 px focus outlines, 44 px controls, semantic links and buttons.
+
+Motion: 400 ms opacity/20 px reveal; 200 ms control transitions; slow silent video loops with play/pause; day/night toggle crossfade. No scroll hijacking. Reduced motion disables reveal translations and starts videos paused. Reserve media aspect ratios and lazy-load below fold. No invented statistics, testimonials or client-logo strip.

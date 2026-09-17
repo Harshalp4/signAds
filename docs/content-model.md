@@ -1,0 +1,9 @@
+# Content and asset model
+
+Website records use product, project and guide types. Each has a stable URL identifier, category, title, summary, image, body paragraphs, detail list, related services and draft/published state. Project records also support industry, application, confirmed location/date, source asset, image origin and client-name approval. New products and projects can be added through /admin without changing code. New records appear automatically in relevant product categories or the portfolio.
+
+The private media library records source file/page, dimensions, orientation, quality, category/service, industry, application, project, date/location when known, original/illustrative origin, caption/alt text, rights status, rights notes, visible names, client approval and current placements. Uploads are stored in private object storage; source-derived previews are served only to authorised team accounts. Extracted masters are preserved in research/source-images. Public uploaded media requires approved or illustrative status. A generated asset cannot be saved as a completed project. Permission-pending records cannot supply approved client names.
+
+Enquiries persist in the database, with separate private object storage for files. Form submissions validate on client and server, cap file size and inspect the signature of accepted PDF/JPG/PNG/WebP uploads. Request keys prevent duplicates on retry. Rate limiting and same-origin checks protect the public submission route. Admin access is checked server-side for every read, write and private download.
+
+No outgoing mail provider is configured. The CMS inbox is the authoritative receipt; call/email/WhatsApp links are also available. The Site owner and selected SignAds contact email are allowed initially. Configure ADMIN_EMAILS through the hosting environment for team membership. No credentials belong in source files.
