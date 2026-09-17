@@ -1,0 +1,72 @@
+/* SignAds / Ideas made visible. Original material artwork and kinetic type. */
+.site-header.home-header{background:#111211;color:#f7f7f2;border-bottom-color:#ffffff20;height:96px}
+.home-header .main-nav{color:#d7d7d2;font-weight:400}
+.home-header .header-quote{background:transparent;color:#f7f7f2;border:1px solid #ffffff60;border-radius:0}
+.home-header .header-quote:hover{background:#ff650b;color:#111211;border-color:#ff650b}
+.brand-hero{--art-x:0px;--art-y:0px;background:#111211;color:#f7f7f2;overflow:hidden;position:relative}
+.brand-stage{min-height:680px;position:relative;padding-top:26px;padding-bottom:30px}
+.brand-topline{position:relative;z-index:4;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b8bab4}
+.brand-topline p{display:flex;align-items:center;gap:10px}
+.brand-status{width:6px;height:6px;background:#ff650b;border-radius:50%;display:block}
+.brand-copy{position:relative;z-index:3;padding-top:67px;pointer-events:none}
+.brand-copy a{pointer-events:auto}
+.brand-copy h1{font-weight:500;letter-spacing:-.07em;line-height:.9;margin:0}
+.brand-title-intro{display:block;font-size:clamp(58px,7.1vw,105px);letter-spacing:-.065em;animation:brand-arrive .9s cubic-bezier(.2,.75,.25,1) both}
+.brand-title-impact{display:block;font-size:clamp(90px,13vw,190px);font-weight:700;letter-spacing:-.065em;margin-top:12px;color:#ff650b;animation:brand-arrive 1.1s cubic-bezier(.2,.75,.25,1) both}
+.brand-period{color:#f7f7f2}
+.brand-description{color:#bebfba;line-height:1.65;font-size:16px;margin:28px 0;max-width:400px}
+.brand-actions{display:flex;align-items:center;gap:30px}
+.brand-primary{display:inline-flex;align-items:center;gap:22px;min-height:56px;padding:7px 7px 7px 23px;background:#f7f7f2;color:#111211;font-size:14px;font-weight:500;transition:background .2s}
+.brand-primary>span{height:42px;width:42px;display:grid;place-items:center;background:#ff650b;transition:transform .25s}
+.brand-primary:hover{background:#ff650b}.brand-primary:hover>span{transform:rotate(45deg)}
+.brand-work{display:flex;gap:14px;align-items:center;font-size:13px;padding:15px 0;border-bottom:1px solid #ffffff60;transition:color .2s}
+.brand-work:hover{color:#ff650b}
+.brand-art{position:absolute;width:77%;height:630px;right:-14%;top:12px;transform:translate3d(var(--art-x),var(--art-y),0);transition:transform .65s ease-out;pointer-events:none;z-index:1;mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 91%,transparent 100%)}
+.brand-art-float{width:100%;height:100%;animation:brand-float 12s ease-in-out infinite}
+.brand-art img{width:100%;height:100%;object-fit:contain;mix-blend-mode:lighten}
+.brand-art-note{position:absolute;z-index:4;right:0;bottom:98px;display:flex;gap:12px;align-items:flex-start;font-size:12px;line-height:1.5;color:#d5d5cf}
+.brand-art-note p>span{color:#90948b}.brand-cross{font-size:28px;color:#ff650b;font-weight:300;line-height:1}
+.brand-stage-bottom{display:flex;align-items:center;justify-content:space-between;position:relative;z-index:4;margin-top:53px;font-size:11px;color:#a8aaa3}
+.brand-stage-bottom>a,.brand-stage-bottom>div{display:flex;align-items:center;gap:14px}
+.brand-stage-bottom>a{min-height:44px}.brand-stage-bottom>a:hover{color:white}
+.brand-study-label{letter-spacing:.09em;text-transform:uppercase}
+.brand-motion-toggle{background:transparent;color:#c8cac3;border:1px solid #ffffff30;display:flex;align-items:center;gap:8px;padding:10px 12px;min-height:44px;font-size:11px}
+.brand-motion-toggle:disabled{opacity:1;cursor:default}
+.brand-service-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #ffffff30;padding-bottom:1px}
+.brand-service-nav>a{display:flex;align-items:center;gap:20px;padding:28px 30px 31px 0;position:relative;transition:color .25s}
+.brand-service-nav>a+a{padding-left:30px;border-left:1px solid #ffffff20}
+.brand-service-number{font-family:monospace;color:#a3a69e;font-size:12px;align-self:flex-start;margin-top:7px}
+.brand-service-nav h2{font-size:30px;letter-spacing:-.045em;transition:transform .25s}
+.brand-service-nav p{font-size:12px;color:#a3a69e;margin-top:7px}
+.brand-service-nav svg{margin-left:auto;flex-shrink:0;transition:transform .25s}
+.brand-service-nav>a:hover{color:#ff650b}.brand-service-nav>a:hover svg{transform:translate(4px,-4px)}
+.brand-service-nav>a:hover h2{transform:translateX(3px)}
+.brand-hero a:focus-visible,.brand-hero button:focus-visible,.home-header a:focus-visible,.home-header button:focus-visible{outline-color:#ff8b49}
+.brand-manifesto{display:grid;grid-template-columns:1fr 2.15fr;gap:50px;margin-bottom:76px}
+.brand-manifesto>.eyebrow{margin-top:9px;color:#62665f}
+.brand-manifesto h2{font-size:clamp(32px,3.8vw,55px);line-height:1.13;letter-spacing:-.045em}
+.brand-manifesto h2 span{color:#a64a18}
+.brand-manifesto>div>p{max-width:530px;font-size:16px;color:#62665f;line-height:1.7;margin-top:26px}
+.brand-entry-grid{display:grid;grid-template-columns:1fr 1.22fr;gap:38px;align-items:start}
+.brand-entry-sign{margin-top:85px}
+.brand-entry-image{position:relative;overflow:hidden;background:#171918;aspect-ratio:1.28}
+.brand-entry-sign .brand-entry-image{aspect-ratio:1.37}
+.brand-entry-image img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.6,.3,1)}
+.brand-entry:hover img{transform:scale(1.04)}
+.brand-entry-index{position:absolute;top:22px;left:24px;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:#f7f7f2;background:#11121190;padding:5px 8px}
+.brand-entry-arrow{position:absolute;right:20px;bottom:20px;background:#f7f7f2;color:#171918;width:48px;height:48px;display:grid;place-items:center;transition:background .2s}
+.brand-entry:hover .brand-entry-arrow{background:#ff650b}
+.brand-entry-caption{display:flex;justify-content:space-between;gap:20px;padding-top:24px}
+.brand-entry-caption h3{font-size:28px;line-height:1.1;letter-spacing:-.04em}
+.brand-entry-caption p{font-size:12px;color:#666a61;line-height:1.7;padding-top:3px}
+.home-page .dark-section{background:#111211}.home-page .dark-section .section-heading>.eyebrow{color:#ff8b49}
+.home-page .dark-section .card-image{border-radius:0}.home-page .section-heading>h2{letter-spacing:-.05em}
+.motion-still .brand-art-float{animation-play-state:paused}.motion-still .brand-art{transform:none}
+@keyframes brand-float{0%,100%{transform:translate3d(0,0,0) rotate(-2deg) scale(1)}50%{transform:translate3d(-8px,-17px,0) rotate(2deg) scale(1.025)}}
+@keyframes brand-arrive{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1600px){.brand-stage{min-height:740px}.brand-copy{padding-top:90px}.brand-art{height:700px;right:-11%}}
+@media(max-width:1100px){.brand-stage{min-height:625px}.brand-copy{padding-top:60px}.brand-art{width:85%;right:-22%;height:560px;top:20px}.brand-description{font-size:15px}.brand-art-note{bottom:85px}.brand-service-nav>a{gap:14px;padding-right:20px}.brand-service-nav>a+a{padding-left:20px}.brand-service-nav h2{font-size:27px}.brand-entry-caption{display:block}.brand-entry-caption p{margin-top:12px}.brand-manifesto{gap:25px}}
+@media(max-width:800px){.site-header.home-header{height:78px}.home-header .main-nav.is-open{background:#111211;color:#f7f7f2;border-color:#ffffff30}.home-header .menu-toggle{color:#f7f7f2}.brand-stage{min-height:720px;padding-top:22px;padding-bottom:20px}.brand-topline>span{display:none}.brand-topline{font-size:10px}.brand-copy{padding-top:37px}.brand-title-intro{font-size:clamp(48px,9vw,72px)}.brand-title-impact{font-size:clamp(78px,15vw,122px);margin-top:9px}.brand-art{width:95%;right:-29%;top:205px;height:460px;opacity:.88;mask-image:linear-gradient(to right,transparent 0%,#000 20%,#000 86%,transparent 100%)}.brand-description{margin-top:30px;max-width:290px;position:relative;z-index:2}.brand-actions{margin-top:210px;gap:25px}.brand-stage-bottom{margin-top:22px}.brand-art-note{display:none}.brand-study-label{display:none}.brand-service-nav>a{gap:12px;padding:22px 15px 24px 0;align-items:flex-start;flex-wrap:wrap}.brand-service-nav>a+a{padding-left:18px}.brand-service-number{width:100%;margin:0}.brand-service-nav h2{font-size:25px}.brand-service-nav p{font-size:11px;max-width:120px;line-height:1.5}.brand-service-nav svg{width:19px;margin-top:4px}.brand-manifesto{grid-template-columns:1fr;gap:25px;margin-bottom:45px}.brand-manifesto h2{font-size:clamp(30px,5.5vw,43px)}.brand-entry-grid{gap:24px}.brand-entry-sign{margin-top:60px}.brand-entry-caption h3{font-size:24px}.brand-entry-index{top:12px;left:12px;font-size:10px}.brand-entry-image,.brand-entry-sign .brand-entry-image{aspect-ratio:.95}}
+@media(max-width:500px){.brand-stage{min-height:708px}.brand-title-intro{font-size:clamp(44px,11.7vw,60px)}.brand-title-impact{font-size:clamp(70px,19.6vw,98px);letter-spacing:-.075em}.brand-copy{padding-top:34px}.brand-description{font-size:14px;margin-top:24px;max-width:290px;line-height:1.65}.brand-art{top:286px;width:130%;right:-22%;height:260px;opacity:1;mask-image:linear-gradient(to bottom,transparent 0%,#000 15%,#000 88%,transparent 100%)}.brand-actions{margin-top:229px;gap:20px}.brand-primary{font-size:12px;padding-left:15px;gap:12px;min-height:52px}.brand-primary>span{width:37px;height:37px}.brand-work{font-size:12px;gap:7px}.brand-stage-bottom{font-size:10px;margin-top:18px}.brand-stage-bottom>a{gap:8px}.brand-motion-toggle{padding:9px 10px;font-size:10px}.brand-service-nav>a{padding-right:11px;gap:10px}.brand-service-nav>a+a{padding-left:14px}.brand-service-nav h2{font-size:24px}.brand-service-nav svg{display:none}.brand-service-nav p{font-size:10px;line-height:1.5;max-width:90px}.brand-manifesto h2{font-size:clamp(27px,7.5vw,37px)}.brand-manifesto>div>p{font-size:15px}.brand-entry-grid{grid-template-columns:1fr;gap:42px}.brand-entry-sign{margin-top:0}.brand-entry-image,.brand-entry-sign .brand-entry-image{aspect-ratio:1.35}.brand-entry-caption{display:flex}.brand-entry-caption h3{font-size:26px}.brand-entry-caption p{margin-top:0;font-size:11px;max-width:145px}.brand-entry-index{font-size:11px}.brand-entry-arrow{width:44px;height:44px}.home-page .section{padding-block:65px}}
+@media(max-width:360px){.brand-primary{padding-left:12px;gap:8px}.brand-actions{gap:12px}.brand-work{gap:5px}.brand-primary>span{width:32px}.brand-entry-caption{display:block}.brand-entry-caption p{margin-top:12px;max-width:none}}
+@media(prefers-reduced-motion:reduce){.brand-art-float,.brand-title-intro,.brand-title-impact{animation:none}.brand-art{transform:none!important}.brand-entry-image img,.brand-service-nav svg,.brand-service-nav h2{transition:none}}

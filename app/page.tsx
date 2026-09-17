@@ -1,6 +1,21 @@
 import Link from 'next/link';
-import {ArrowUpRight, ArrowDown} from 'lucide-react';
-import {HomeSections} from '@/components/home-sections';
-import {getPublishedContent} from '@/lib/store';
-export const dynamic='force-dynamic';
-export default async function Home(){const projects=(await getPublishedContent()).filter(p=>p.kind==='project');return <main id="main"><section className="hero wrap"><div className="hero-copy"><p className="eyebrow"><span className="orange-rule"/> Print. Signage. Advertising.</p><h1>Your brand,<br/>out in the<br/><span>world.</span></h1><p className="hero-description">From a visiting card to a building facade.<br className="desktop-br"/> Make every encounter with your brand count.</p><div className="button-row"><Link href="/contact" className="button">Get a Quote <ArrowUpRight size={19}/></Link><Link href="/work" className="text-link">Explore Our Work <ArrowUpRight size={18}/></Link></div><a href="#explore" className="hero-scroll"><ArrowDown size={16}/> Built to be seen.</a></div><div className="hero-visual"><div className="hero-frame"><img src="/images/hero-signage.webp" alt="Illuminated dimensional letters on a geometric reception wall, photographed in the SignAds profile" width="1040" height="780" fetchPriority="high"/><span className="photo-label">From the SignAds portfolio</span></div><div className="hero-small"><img src="/images/metal-letters.webp" alt="Illuminated metal letters above a jewellery storefront" width="854" height="589"/><span>01 / Signage that makes an entrance</span></div><span className="hero-side-label">BRING YOUR BRAND TO LIFE</span><div className="hero-stamp"><ArrowUpRight size={38}/><span>Small details.<br/>Big presence.</span></div></div></section><div className="service-ribbon"><span>PRINT THAT CONNECTS</span><b>✳</b><span>SIGNAGE THAT STANDS OUT</span><b>✳</b><span>ADVERTISING THAT MOVES</span><b>✳</b><span>IDEAS MADE VISIBLE</span></div><section className="section wrap" id="explore"><div className="section-heading"><p className="eyebrow">01 / What brings you here?</p><h2>A small print run.<br/>A big first impression.</h2><p>Start with a product. Or bring us the whole picture.<br/>There’s a way in for every kind of project.</p></div><div className="entry-grid"><Link href="/print-products" className="entry-card"><img src="/images/print-study.webp" alt="Illustrative paper study with orange brochures and white visiting cards" width="1536" height="1024"/><div><span className="eyebrow">In your hands</span><h3>Print products <ArrowUpRight/></h3><p>Visiting cards, flyers, brochures & banners</p></div></Link><Link href="/signage" className="entry-card"><img src="/images/letter-study.webp" alt="Illustrative illuminated orange dimensional letter" width="1672" height="941"/><div><span className="eyebrow">In your space</span><h3>Signage & advertising <ArrowUpRight/></h3><p>Storefronts, spaces, streets & moving brands</p></div></Link></div></section><HomeSections projects={projects}/></main>}
+import { ArrowUpRight } from 'lucide-react';
+import { HomeSections } from '@/components/home-sections';
+import { BrandHero } from '@/components/brand-hero';
+import { Reveal } from '@/components/motion';
+import { getPublishedContent } from '@/lib/store';
+export const dynamic = 'force-dynamic';
+export default async function Home() {
+  const projects = (await getPublishedContent()).filter(p => p.kind === 'project');
+  return <main id="main" className="home-page">
+    <BrandHero/>
+    <section className="brand-introduction section wrap" id="explore">
+      <Reveal><div className="brand-manifesto"><p className="eyebrow">01 / Make an impression</p><div><h2>Noticed on paper.<br/>Recognised in a space.<br/><span>Remembered on the street.</span></h2><p>A brand is more than what’s on a screen. We bring yours into the places where people meet it—with print, signs and outdoor advertising.</p></div></div></Reveal>
+      <div className="brand-entry-grid">
+        <Link href="/print-products" className="brand-entry brand-entry-print"><div className="brand-entry-image"><img src="/images/print-study.webp" alt="Illustrative study of orange folded paper and white visiting cards" width="1536" height="1024" loading="lazy"/><span className="brand-entry-index">01 / In your hands</span><span className="brand-entry-arrow"><ArrowUpRight/></span></div><div className="brand-entry-caption"><h3>Small format.<br/>Lasting impression.</h3><p>Visiting cards, brochures,<br/>flyers & print essentials.</p></div></Link>
+        <Link href="/signage" className="brand-entry brand-entry-sign"><div className="brand-entry-image"><img src="/images/letter-study.webp" alt="Illustrative study of an illuminated orange dimensional letter" width="1672" height="941" loading="lazy"/><span className="brand-entry-index">02 / In your space</span><span className="brand-entry-arrow"><ArrowUpRight/></span></div><div className="brand-entry-caption"><h3>Big presence.<br/>Every dimension.</h3><p>Dimensional lettering,<br/>illuminated signs & branded spaces.</p></div></Link>
+      </div>
+    </section>
+    <HomeSections projects={projects}/>
+  </main>;
+}

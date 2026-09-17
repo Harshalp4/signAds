@@ -13,3 +13,13 @@
 - Native WebMCP support was unavailable in the local browser; feature detection is in place and this optional integration did not block delivery.
 
 Automated checks are not a full accessibility or legal compliance audit. Public launch still requires the factual and permissions review in the launch checklist.
+
+
+## Creative homepage revision — 17 September 2026
+
+- TypeScript validation passed.
+- Production build passed with the new hero component and stylesheet.
+- Local homepage returned HTTP 200.
+- Original generated artwork visually inspected before integration; WebP asset is 71,846 bytes.
+- Source includes explicit motion pause, reduced-motion preference handling, offscreen/hidden-tab suspension, and mouse-only parallax.
+- Existing backend and CMS workflows preserved. Browser interaction testing was not run for this visual revision.
