@@ -1,0 +1,206 @@
+{
+  "purpose": "Illustrative business-solutions gallery scenes; fictional brands.",
+  "coordinateSystem": "Approximate percent coordinates measured from top-left of the full image; x is horizontal, y is vertical.",
+  "images": [
+    {
+      "id": "new-store-launch",
+      "path": "/images/solution-scenes/new-store-launch.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Sunlit Niva Goods shopfront with orange fascia, opening graphics on the window and printed launch flyers on an outdoor stand.",
+      "touchpoints": [
+        {
+          "label": "Fascia identity",
+          "x": 50,
+          "y": 14
+        },
+        {
+          "label": "Window opening graphic",
+          "x": 80,
+          "y": 38
+        },
+        {
+          "label": "Printed opening flyers",
+          "x": 75,
+          "y": 80
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: An urban small lifestyle shop opening on a welcoming paved street. Full storefront with orange fascia identity near the top saying \"NIVA GOODS\"; a clear window graphic on the right pane reading \"NOW OPEN\"; a small outdoor stand in the near foreground with tangible printed orange and ivory opening flyers. A person browsing through the doorway adds scale. Show pavement, architecture and deep interior, all three print/sign touchpoints unobstructed."
+    },
+    {
+      "id": "retail-showrooms",
+      "path": "/images/solution-scenes/retail-showrooms.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Contemporary homewares showroom with dimensional store lettering, an orange window promotion and product signage among ceramic displays.",
+      "touchpoints": [
+        {
+          "label": "Dimensional store identity",
+          "x": 66,
+          "y": 10
+        },
+        {
+          "label": "Window promotion",
+          "x": 13,
+          "y": 40
+        },
+        {
+          "label": "Product display signage",
+          "x": 72,
+          "y": 47
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A contemporary homewares showroom seen from its entrance, with the full entry architecture and deep interior in view. Dimensional store identity high above the entry reads \"FORM HOUSE\" in charcoal; an orange window promotion on the left glass pane reads \"NEW COLLECTION\"; a product display placard deeper inside beside tactile ceramic and furniture merchandise reads \"HANDMADE\". Bright warm daylight, spacious premium retail interior, discreet customer."
+    },
+    {
+      "id": "offices-receptions",
+      "path": "/images/solution-scenes/offices-receptions.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Warm stone and timber office reception with illuminated lettering, a floor directory and an open company brochure on the desk.",
+      "touchpoints": [
+        {
+          "label": "Illuminated logo wall",
+          "x": 74,
+          "y": 22
+        },
+        {
+          "label": "Floor directory",
+          "x": 15,
+          "y": 36
+        },
+        {
+          "label": "Company brochure",
+          "x": 69,
+          "y": 78
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A premium office arrival scene with full reception environment in view, warm stone, timber and charcoal finishes. A large illuminated dimensional fictional logo \"ARCA WORKS\" on the wall behind reception; a freestanding slim direction directory on the left side marked \"DIRECTORY\" with simple floor numerals; on the foreground reception desk an obvious printed company brochure with an orange cover partly opened. Restrained staff member, realistic workplace."
+    },
+    {
+      "id": "real-estate",
+      "path": "/images/solution-scenes/real-estate.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Landscaped residential sales gallery with a project sign, property campaign board and an open brochure at a consultation table.",
+      "touchpoints": [
+        {
+          "label": "Building project sign",
+          "x": 39,
+          "y": 16
+        },
+        {
+          "label": "Sales campaign board",
+          "x": 90,
+          "y": 36
+        },
+        {
+          "label": "Property brochure",
+          "x": 69,
+          "y": 74
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: Exterior and sheltered consultation area of a residential property sales gallery, full environment with landscaped approach and building visible. High on the gallery facade a project identity sign reads \"GROVE RESIDENCES\"; on the right a large physical sales campaign board with an architectural image and short text \"A NEW ADDRESS\"; an open printed property brochure on a foreground outdoor consultation table, showing floor-plan and building photographs. Warm afternoon sun, architecture and scene depth."
+    },
+    {
+      "id": "events-exhibitions",
+      "path": "/images/solution-scenes/events-exhibitions.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Architecture exhibition booth with a suspended brand banner, an aisle direction graphic and brochures on the front counter.",
+      "touchpoints": [
+        {
+          "label": "Overhead banner",
+          "x": 52,
+          "y": 16
+        },
+        {
+          "label": "Aisle directional marker",
+          "x": 15,
+          "y": 78
+        },
+        {
+          "label": "Brochure counter",
+          "x": 81,
+          "y": 61
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A professional architecture and design exhibition booth seen from the public aisle, the whole booth in frame. A suspended overhead orange and charcoal fabric banner reads \"MODU STUDIO\"; a large physical floor or aisle directional marker in the left foreground reads \"HALL 02\" with arrow; a brochure counter in the right foreground carries clearly visible stacked and upright printed brochures. Tasteful modular exhibit structure and subtle candid attendees deeper in the hall, generous spatial depth."
+    },
+    {
+      "id": "hospitality",
+      "path": "/images/solution-scenes/hospitality.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Brick cafe at dusk with glowing fascia lettering, a pavement menu board and printed takeaway materials on the outdoor counter.",
+      "touchpoints": [
+        {
+          "label": "Glowing fascia sign",
+          "x": 43,
+          "y": 12
+        },
+        {
+          "label": "Menu display",
+          "x": 78,
+          "y": 70
+        },
+        {
+          "label": "Takeaway printed leaflets",
+          "x": 14,
+          "y": 77
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A warm neighborhood cafe at dusk, seen wide from the pavement into a welcoming entrance. Glowing orange fascia sign high above reads \"EMBER CAFE\"; a freestanding menu display close to the entrance reads \"TODAY'S MENU\" with a few neat short lines; on a small outdoor service counter in the near foreground, tangible printed takeaway leaflets and orange branded paper bags. Warm interior light, blue dusk shadows, one subtle candid guest, visible whole facade and interior depth."
+    },
+    {
+      "id": "vehicle-transit",
+      "path": "/images/solution-scenes/vehicle-transit.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Orange and charcoal delivery van and cargo tempo parked beneath a matching roadside campaign billboard.",
+      "touchpoints": [
+        {
+          "label": "Van main panel",
+          "x": 52,
+          "y": 52
+        },
+        {
+          "label": "Rear door graphics",
+          "x": 82,
+          "y": 50
+        },
+        {
+          "label": "Roadside campaign hoarding",
+          "x": 35,
+          "y": 18
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A realistic Indian urban commercial roadside during warm late afternoon. Parked delivery van in three-quarter rear view with coherent orange and charcoal campaign wrap for a fictional company \"ORBIT GOODS\", plus a smaller cargo tempo nearby. The van's large side panel is clearly visible and its rear door graphics separately visible, both with a simple circular brand device and minimal lettering. A large physical roadside campaign hoarding further back also reads \"ORBIT GOODS\" with the same orange/charcoal branding. Keep three touchpoints unobstructed: van main side panel, van rear door graphic, background roadside hoarding. Full vehicles in view with wheels grounded, generous depth."
+    },
+    {
+      "id": "safety-directional",
+      "path": "/images/solution-scenes/safety-directional.webp",
+      "width": 1536,
+      "height": 1024,
+      "alt": "Bright public building lobby with a floor directory, a meeting-room direction sign and a numbered door.",
+      "touchpoints": [
+        {
+          "label": "General directory",
+          "x": 20,
+          "y": 48
+        },
+        {
+          "label": "Wall directional sign",
+          "x": 72,
+          "y": 37
+        },
+        {
+          "label": "Door number marker",
+          "x": 92,
+          "y": 40
+        }
+      ],
+      "prompt": "Use case: photorealistic-natural. Asset type: premium business-solutions editorial website gallery, one landscape image 1536x1024 (3:2). Style: convincing documentary architectural/product photography, refined natural colors, tactile materials, warm sunlight, charcoal and orange brand accents, subtle candid people. Scene depth and environmental storytelling are essential. Composition: wide architectural view, eye-level 28mm lens, natural perspective, uncluttered but lived in, keep full useful environment and clearly distinguishable physical print/signage touchpoints. Fictional brands only. All lettering exists naturally on real physical signage or print. No UI, no diagrams, no hotspot dots, no overlays, no watermark, no collage, no close crop, no artificial 3D mockup look. Primary scene: A bright contemporary public building lobby and campus connector with warm timber, pale stone and charcoal details. A freestanding general directory in the left middle ground clearly reads \"DIRECTORY\" with simple labels \"01\" \"02\" \"03\"; a distinct orange and charcoal wall directional sign on the right reads \"MEETING ROOMS\" with right arrow; a visible door deeper to the right has a separate room number marker \"204\". Natural sunlight, public architecture, subtle pedestrian in distance. No regulatory or safety certification marks or claims. Wide scene depth and all three signs visible."
+    }
+  ]
+}
