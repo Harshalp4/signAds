@@ -34,6 +34,7 @@ export function LumiAssistant() {
   const [quoteDraft, setQuoteDraft] = useState<{ service: string; brief: string } | null>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLInputElement>(null);
+  const backButton = useRef<HTMLButtonElement>(null);
   const controller = useRef<AbortController | null>(null);
   const emotionTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const sequence = useRef(0);
@@ -68,6 +69,12 @@ export function LumiAssistant() {
   useEffect(() => {
     transcript.current?.scrollTo({ top: transcript.current.scrollHeight, behavior: 'instant' });
   }, [messages, busy, mode, open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const frame = requestAnimationFrame(() => (mode === 'chat' ? composer.current : backButton.current)?.focus({ preventScroll: true }));
+    return () => cancelAnimationFrame(frame);
+  }, [mode, open]);
 
   const animated = motion && !reduced;
   const reply = [...messages].reverse().find(m => m.role === 'lumi');
@@ -145,7 +152,7 @@ export function LumiAssistant() {
           <form className="lumi-composer" onSubmit={submit}><label className="sr-only" htmlFor="lumi-message">Ask about print or signage</label><input id="lumi-message" ref={composer} value={input} maxLength={600} onChange={event => { setInput(event.target.value); if (!busy) { if (emotionTimer.current) clearTimeout(emotionTimer.current); setEmotion(event.target.value ? 'attentive' : 'calm'); } }} placeholder="Ask about print or signage…" autoComplete="off" enterKeyHint="send" readOnly={busy} aria-busy={busy}/><button type="submit" aria-label="Send message" disabled={busy || !input.trim()}><Send size={19} /></button></form>
           <p className="lumi-footnote">Product guidance · Prices and dates confirmed by the team.</p>
         </div>
-        <div className="lumi-quote-scroll" hidden={mode !== 'quote'}><button className="lumi-back" onClick={() => { setMode('chat'); react('attentive'); }}><ArrowLeft size={16} /> Back to conversation</button>{quoteDraft && <QuoteForm service={quoteDraft.service} brief={quoteDraft.brief} onSaved={id => { setSaved(true); react('delighted', 'delighted', 1800); setMessages(previous => [...previous, { id: ++sequence.current, role: 'lumi', text: `Your enquiry is saved in the SignAds team inbox. Your reference is ${id}. The team will review the details with you.`, suggestions: ['Talk to the team'], link: { label: 'Continue on WhatsApp', href: `https://wa.me/919152900157?text=${encodeURIComponent('Hello SignAds, I would like to discuss enquiry ' + id)}` } }]); }} />}</div>
+        <div className="lumi-quote-scroll" hidden={mode !== 'quote'}><button ref={backButton} className="lumi-back" onClick={() => { setMode('chat'); react('attentive'); }}><ArrowLeft size={16} /> Back to conversation</button>{quoteDraft && <QuoteForm service={quoteDraft.service} brief={quoteDraft.brief} onSaved={id => { setSaved(true); react('delighted', 'delighted', 1800); setMessages(previous => [...previous, { id: ++sequence.current, role: 'lumi', text: `Your enquiry is saved in the SignAds team inbox. Your reference is ${id}. The team will review the details with you.`, suggestions: ['Talk to the team'], link: { label: 'Continue on WhatsApp', href: `https://wa.me/919152900157?text=${encodeURIComponent('Hello SignAds, I would like to discuss enquiry ' + id)}` } }]); }} />}</div>
       </DialogContent>
     </Dialog>
   </div>;
